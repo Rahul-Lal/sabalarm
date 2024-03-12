@@ -8,18 +8,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="livetime()">
+    <script src="script.js"></script>
+
+    <h2 id="h2time">00:00:00</h2>
     <input id="date-time" type="datetime-local" />
     <br>
     <button id="alarmset" onclick="alarmset()">
         Set Alarm
     </button>
-
-    <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/qmleXp8KUPA?si=ZCedIKOrQmC8b7OE"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    <script src="script.js"></script>
+    <br>
+    <br>
 </body>
 
 </html>
