@@ -1,0 +1,22 @@
+body {
+    background-color: #131313;
+}
+
+#h2time {
+    font-family: "Share Tech Mono", monospace;
+    color: gold;
+    font-size: 125px;
+    font-weight: 400;
+}
+
+#alarmset {
+    color: green;
+    background-color: #131313;
+    border-color: green;
+}
+
+#alarmcancel {
+    color: red;
+    background-color: #131313;
+    border-color: red;
+}

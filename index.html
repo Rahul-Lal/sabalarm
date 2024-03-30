@@ -6,19 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alarm Clock</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    </style>
 </head>
 
 <body onload="livetime()">
+    <div align="center">
+        <h2 id="h2time">00:00:00</h2>
+        <input id="date-time" onchange="timeset(this.value)" type="datetime-local" />
+        <!--
+        <input onchange="timeset(this.value)" type="number" id="hour" min="00" max="23">
+        <input onchange="timeset(this.value)" type="number" id="min" min="00" max="59">
+        -->
 
-    <h2 id="h2time">00:00:00</h2>
-    <input id="date-time" type="datetime-local" />
-    <br>
-    <button id="alarmset" onclick="alarmset()">
-        Set Alarm
-    </button>
-    <br>
-    <br>
-    <script src="script.js"></script>
+        <br>
+        <button id="alarmset" onclick="alarmset()">
+            Set Alarm
+        </button>
+        
+        <button id="alarmcancel" onclick="alarmcancel()">
+            Cancel Alarm
+        </button>
+        <br>
+        <br>
+        <script src="script.js"></script>
+    </div>
 </body>
 
 </html>
