@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alarm Clock</title>
+    <title>Sabalarm | A Sabaton themed alarm clock</title>
     <link rel="stylesheet" href="style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
@@ -12,7 +12,8 @@
 </head>
 
 <body onload="livetime()">
-    <div align="center">
+    <div align="center" id="#body">
+        <br><br><br>
         <h2 id="h2time">00:00:00</h2>
         <input id="date-time" onchange="timeset(this.value)" type="datetime-local" />
         <!--
@@ -24,12 +25,12 @@
         <button id="alarmset" onclick="alarmset()">
             Set Alarm
         </button>
-        
+
         <button id="alarmcancel" onclick="alarmcancel()">
             Cancel Alarm
         </button>
         <br>
-        <br>
+        <h3>A alarm clock the plays 'Ghost Division' by Sabaton</h3>
         <script src="script.js"></script>
     </div>
 </body>
