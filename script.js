@@ -24,6 +24,8 @@ btnalarmcancel.disabled = true;
 // let impHour = document.getElementById("hour");
 // let impMin = document.getElementById("min");
 
+let player;
+
 // create Date object for current location
 function livetime() {
     let h2time = document.getElementById("h2time").value;
@@ -33,11 +35,38 @@ function livetime() {
     // console.log(h2time);
 }
 
-function playalarm() {
-    console.log("Wake Up!");
-    console.log(ghostdivison.src);
-    ghostdivison.play();
+// This function gets called by the YouTube IFrame API
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('videoPlayer', {
+    height: '0', // hidden initially
+    width: '0',
+    videoId: 'ICfzQVh3lvs', // Replace with the YouTube video ID
+    playerVars: {
+      autoplay: 0,
+      controls: 0
+    }
+  });
 }
+
+function playYoutubeAlarm() {
+  if (player) {
+    player.playVideo();
+    player.setSize(560, 315); // make it visible when alarm triggers
+  }
+}
+
+function stopAlarm() {
+  if (player) {
+    player.stopVideo();
+    player.setSize(0, 0); // hide it again
+  }
+}
+
+// function playalarm() {
+//     console.log("Wake Up!");
+//     console.log(ghostdivison.src);
+//     ghostdivison.play();
+// }
 
 function timeset(t) {
     /*
@@ -62,7 +91,7 @@ function alarmset() {
 
         if (alarmCountdown > rightFrigginNow) {
             const timesup = alarmCountdown.getTime() - rightFrigginNow.getTime();
-            timeout = setTimeout(() => ghostdivison.play(), timesup);
+            timeout = setTimeout(() => playYoutubeAlarm(), timesup);
             alert("Alarm Set!");
         }
     }
@@ -73,7 +102,7 @@ function alarmcancel() {
     btnsetalarm.disabled = false;
     alarmset.disabled = true;
 
-    ghostdivison.pause();
+    stopAlarm();
 
     if (timeout) {
         clearTimeout(timeout);

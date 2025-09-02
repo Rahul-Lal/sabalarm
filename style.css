@@ -31,3 +31,7 @@ h3 {
     background-color: #131313;
     border-color: red;
 }
+
+#videoPlayer {
+     background-position: center;
+}
