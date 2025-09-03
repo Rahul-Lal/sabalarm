@@ -9,9 +9,10 @@ body {
 
 #h2time {
     font-family: "Share Tech Mono", monospace;
+    text-align: center;
+    font-weight: bold;
     color: gold;
     font-size: 125px;
-    font-weight: 400;
 }
 
 h3 {

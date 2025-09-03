@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabalarm | A Sabaton themed alarm clock</title>
+    
     <link rel="stylesheet" href="style.css">
+     <link rel="icon" type="image/x-icon" href="logo.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
     </style>
@@ -13,10 +15,9 @@
 
 <body onload="livetime()">
     <div align="center" id="#body">
-        <br><br><br>
         <h2 id="h2time">00:00:00</h2>
         <h3>A alarm clock the plays 'Ghost Division' by Sabaton</h3>
-        
+
         <input id="date-time" onchange="timeset(this.value)" type="datetime-local" />
 
         <br>
@@ -31,8 +32,12 @@
         <br>
         <br>
 
-        <div id="videoPlayer" align="center">
-        </div>
+        <!-- Placeholder image -->
+        <img id="alarm-placeholder" src="https://i.ytimg.com/vi/ICfzQVh3lvs/hq720.jpg" alt="Ghost Division Thumbnail" width="560" height="315" />
+
+        <!-- Hidden YouTube player -->
+        <div id="player" style="display: none;"></div>
+
 
 
         <script src="script.js"></script>

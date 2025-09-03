@@ -37,18 +37,24 @@ function livetime() {
 
 // This function gets called by the YouTube IFrame API
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player('videoPlayer', {
-    height: '0', // hidden initially
-    width: '0',
+  player = new YT.Player('player', {
+    height: '315', // hidden initially
+    width: '560',
     videoId: 'ICfzQVh3lvs', // Replace with the YouTube video ID
     playerVars: {
       autoplay: 0,
-      controls: 0
+      controls: 1
     }
   });
 }
 
 function playYoutubeAlarm() {
+  // Hide placeholder
+  document.getElementById('alarm-placeholder').style.display = 'none';
+
+  // Show YouTube video
+  document.getElementById('player').style.display = 'block';
+
   if (player) {
     player.playVideo();
     player.setSize(560, 315); // make it visible when alarm triggers
@@ -60,6 +66,9 @@ function stopAlarm() {
     player.stopVideo();
     player.setSize(0, 0); // hide it again
   }
+
+  document.getElementById('player').style.display = 'none';
+  document.getElementById('alarm-placeholder').style.display = 'block';
 }
 
 // function playalarm() {
