@@ -42,8 +42,9 @@ function onYouTubeIframeAPIReady() {
     width: '560',
     videoId: 'ICfzQVh3lvs', // Replace with the YouTube video ID
     playerVars: {
-      autoplay: 0,
-      controls: 1
+      autoplay: 1,
+        loop: 1,
+      controls: 0
     }
   });
 }
@@ -119,4 +120,5 @@ function alarmcancel() {
     }
 
     console.log("Cancelled!");
+
 }
