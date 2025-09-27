@@ -3,7 +3,7 @@ body {
 }
 
 #body {
-    background-image: url("./Hellfest2017Sabaton_01\ -\ Grey.jpg"), url("./Hellfest2017Sabaton_01\ -\ Grey.jpg");
+    background-image: url("./SabatonGrey.jpg");
     background-position: center;
     background-repeat: no-repeat, repeat;
     background-size: cover, auto;
@@ -74,4 +74,12 @@ button:disabled {
     margin: 0 auto;
     align-items: center;
     justify-content: center;
+}
+
+#date-time {
+    font-family: "Share Tech Mono", monospace;
+    background-color: transparent;
+    color: gold;
+    font-size: 33px;
+    margin-top: -20px;
 }

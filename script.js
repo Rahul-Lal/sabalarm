@@ -51,7 +51,7 @@ function onYouTubeIframeAPIReady() {
 function playYoutubeAlarm() {
   // Hide placeholder
   document.getElementById('alarm-placeholder').style.display = 'none';
-  body.style.backgroundImage = "url('./Hellfest2017Sabaton_01.jpg')";
+  body.style.backgroundImage = "url('./SabatonColor.jpg')";
 
   // Show YouTube video
   document.getElementById('player').style.display = 'block';
@@ -69,7 +69,7 @@ function stopAlarm() {
     player.stopVideo();
     player.setSize(0, 0); // hide it again
   }
-  body.style.backgroundImage = "url('./Hellfest2017Sabaton_01.jpg - Grey.jpg')";
+  body.style.backgroundImage = "url('./SabatonGrey.jpg')";
 
   document.getElementById('player').style.display = 'none';
   document.getElementById('alarm-placeholder').style.display = 'block';
@@ -114,7 +114,7 @@ function alarmset() {
 function alarmcancel() {
   btnalarmcancel.disabled = true;
   btnsetalarm.disabled = false;
-  body.style.backgroundImage = "url('./Hellfest2017Sabaton_01 - Grey.jpg')";
+  body.style.backgroundImage = "url('./SabatonGrey.jpg')";
   btnsetalarm.disabled = false;
 
   stopAlarm();
