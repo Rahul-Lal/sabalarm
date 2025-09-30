@@ -15,7 +15,7 @@ let selectedMin = null;
 let timeout = null;
 
 let realtime = document.getElementById("h2time");
-let imptime = document.getElementById("date-time");
+const imptime = document.getElementById("date-time");
 let btnsetalarm = document.getElementById("alarmset");
 let btnalarmcancel = document.getElementById("alarmcancel");
 let body = document.getElementById("body");
@@ -31,7 +31,6 @@ function livetime() {
   let usedtime = new Date().toLocaleTimeString("en-NZ");
   h2time = usedtime;
   realtime.innerHTML = h2time;
-  // console.log(h2time);
 }
 
 // This function gets called by the YouTube IFrame API
@@ -41,7 +40,7 @@ function onYouTubeIframeAPIReady() {
     width: '560',
     videoId: 'ICfzQVh3lvs', // Replace with the YouTube video ID
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
       loop: 1,
       controls: 0
     }
@@ -116,6 +115,7 @@ function alarmcancel() {
   btnsetalarm.disabled = false;
   body.style.backgroundImage = "url('./SabatonGrey.jpg')";
   btnsetalarm.disabled = false;
+  imptime.value = "0000-00-00T00:00";
 
   stopAlarm();
 

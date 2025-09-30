@@ -1,8 +1,5 @@
 body {
     background-color: #131313;
-}
-
-#body {
     background-image: url("./SabatonGrey.jpg");
     background-position: center;
     background-repeat: no-repeat, repeat;
@@ -17,17 +14,22 @@ body {
 
 #h2time {
     font-family: "Share Tech Mono", monospace;
-    filter: grayscale(0%);
     text-align: center;
     font-weight: bold;
     color: gold;
-    font-size: 125px;
+    font-size: 7.5em;
 }
 
 h3 {
     font-family: "Share Tech Mono", monospace;
     color: gold;
-    font-size: 23px;
+    font-size: 1.5em;
+}
+
+h4 {
+    font-family: "Share Tech Mono", monospace;
+    color: gold;
+    font-size: 0.84em;
 }
 
 button {
@@ -57,8 +59,8 @@ button:hover {
 }
 
 button:disabled {
-    background-color: #555555;
-    border-color: #555555;
+    color: #333333;
+    border-color: #333333;
     cursor: not-allowed;
 }
 
@@ -82,4 +84,41 @@ button:disabled {
     color: gold;
     font-size: 33px;
     margin-top: -20px;
+}
+
+@media screen and (max-width: 600px) {
+    body{
+        background-image: url("./alt-background.png");
+        background-size: cover, auto;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+    #h2time {
+        font-size: 4.5em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 8px;
+        margin: 8px;
+    }
+
+    #date-time {
+        font-size: 20px;
+        margin-top: -10px;
+    }
+
+    #alarm-placeholder {
+        background-position: center;
+        width: 100%;
+        height: auto;
+    }
+    
 }
