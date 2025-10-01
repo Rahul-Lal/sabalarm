@@ -87,15 +87,18 @@ button:disabled {
 }
 
 @media screen and (max-width: 600px) {
-    body{
+    body {
         background-image: url("./alt-background.png");
-        background-size: cover, auto;
+        background-size: contain, auto;
         height: 100%;
         align-items: center;
         justify-content: center;
         text-align: center;
         margin: 0 auto;
+        min-height: 100vh;
+        /* at least full viewport height */
     }
+
     #h2time {
         font-size: 4.5em;
     }
@@ -115,10 +118,10 @@ button:disabled {
         margin-top: -10px;
     }
 
-    #alarm-placeholder {
+    #player, #alarm-placeholder {
         background-position: center;
-        width: 100%;
+        width: 66%;
         height: auto;
     }
-    
+
 }
