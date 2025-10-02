@@ -15,7 +15,8 @@ let selectedMin = null;
 let timeout = null;
 
 let realtime = document.getElementById("h2time");
-const imptime = document.getElementById("date-time");
+let selectedDateTime = document.getElementById("date-time");
+const inputDateTime = document.getElementById("date-time");
 let btnsetalarm = document.getElementById("alarmset");
 let btnalarmcancel = document.getElementById("alarmcancel");
 let body = document.getElementById("body");
@@ -42,7 +43,8 @@ function onYouTubeIframeAPIReady() {
     playerVars: {
       autoplay: 0,
       loop: 1,
-      controls: 0
+      controls: 0,
+      playlist: 'ICfzQVh3lvs' // Loop the same video
     }
   });
 }
@@ -58,7 +60,6 @@ function playYoutubeAlarm() {
   if (player) {
     player.playVideo();
     player.setSize(560, 315); // make it visible when alarm triggers
-    player.loop(true);
   }
 
 }
@@ -87,35 +88,40 @@ function timeset(t) {
   console.log("The selected time is " + impHour + ":" + impMin);
   */
 
-  imptime = t;
-  console.log("The selected time is " + imptime);
+  selectedDateTime.value = t;
+  console.log("The selected time is " + selectedDateTime.value);
 }
 
 function alarmset() {
-  // Ref: https://www.youtube.com/watch?v=R-bSb7xrS5s
-
   btnsetalarm.disabled = true;
   btnalarmcancel.disabled = false;
 
-  if (imptime) {
+  if (selectedDateTime.value !== "") {
     const rightFrigginNow = new Date();
-    const alarmCountdown = new Date(imptime);
+    const alarmCountdown = new Date(selectedDateTime.value);
 
     if (alarmCountdown > rightFrigginNow) {
       const timesup = alarmCountdown.getTime() - rightFrigginNow.getTime();
+
       timeout = setTimeout(() => playYoutubeAlarm(), timesup);
-      console.log(`Alarm Set on ${imptime.date()}, at ${imptime.toLocaleTimeString()}`);
-      alert(`Alarm Set on ${imptime.date()}, at ${imptime.toLocaleTimeString()}`);
+
+      console.log(`Alarm Set on ${alarmCountdown.toDateString()}, at ${alarmCountdown.toLocaleTimeString()}`);
+      alert(`Alarm Set on ${alarmCountdown.toDateString()}, at ${alarmCountdown.toLocaleTimeString()}`);
+    } else {
+      alert("Please select a future time for the alarm.");
     }
+  } else {
+    alert("Please select a date and time.");
   }
 }
+
 
 function alarmcancel() {
   btnalarmcancel.disabled = true;
   btnsetalarm.disabled = false;
   body.style.backgroundImage = "url('./SabatonGrey.jpg')";
   btnsetalarm.disabled = false;
-  imptime.value = "0000-00-00T00:00";
+  inputDateTime.value = "";
 
   stopAlarm();
 
