@@ -20,6 +20,7 @@ const inputDateTime = document.getElementById("date-time");
 let btnsetalarm = document.getElementById("alarmset");
 let btnalarmcancel = document.getElementById("alarmcancel");
 let body = document.getElementById("body");
+let alarmPlaceholder = document.getElementById("alarm-placeholder");
 btnalarmcancel.disabled = true;
 // let impHour = document.getElementById("hour");
 // let impMin = document.getElementById("min");
@@ -51,8 +52,21 @@ function onYouTubeIframeAPIReady() {
 
 function playYoutubeAlarm() {
   // Hide placeholder
-  document.getElementById('alarm-placeholder').style.display = 'none';
-  body.style.backgroundImage = "url('./SabatonColor.jpg')";
+  alarmPlaceholder.style.display = "none";
+
+  body.style.backgroundImage = "url('./media/SabatonColor.jpg')";
+  body.style.transition = "background-image 0.75s ease-in-out";
+
+  btnsetalarm.style.color = "green";
+  btnsetalarm.style.borderColor = "green";
+  btnalarmcancel.style.color = "red";
+  btnalarmcancel.style.borderColor = "red";
+ 
+  alarmPlaceholder.style.opacity = "1.0";
+
+  realtime.style.opacity = "1.0";
+  Array.from(document.getElementsByTagName("h3")).forEach(h3 => h3.style.opacity = "1.0");
+  Array.from(document.getElementsByTagName("h4")).forEach(h4 => h4.style.opacity = "1.0");
 
   // Show YouTube video
   document.getElementById('player').style.display = 'block';
@@ -69,10 +83,12 @@ function stopAlarm() {
     player.stopVideo();
     player.setSize(0, 0); // hide it again
   }
-  body.style.backgroundImage = "url('./SabatonGrey.jpg')";
+  body.style.backgroundImage = "url('./media/SabatonDark.jpg')";
+  body.style.transition = "background-image 0.75s ease-in-out";
+  alarmPlaceholder.style.opacity = "1.0";
 
   document.getElementById('player').style.display = 'none';
-  document.getElementById('alarm-placeholder').style.display = 'block';
+  alarmPlaceholder.style.display = 'block';
 }
 
 // function playalarm() {
@@ -94,7 +110,20 @@ function timeset(t) {
 
 function alarmset() {
   btnsetalarm.disabled = true;
+  btnsetalarm.style.color = "#222222";
+  btnsetalarm.style.borderColor = "#333333";
+
   btnalarmcancel.disabled = false;
+  btnalarmcancel.style.color = "#222222";
+  btnalarmcancel.style.borderColor = "#333333";
+
+  body.style.backgroundImage = "url('./media/SabatonDark.jpg')";
+  body.style.transition = "background-image 0.75s ease-in-out";
+  realtime.style.opacity = "0.25";
+  Array.from(document.getElementsByTagName("h3")).forEach(h3 => h3.style.opacity = "0.25");
+  Array.from(document.getElementsByTagName("h4")).forEach(h4 => h4.style.opacity = "0.25");
+
+  alarmPlaceholder.style.opacity = "0.25";
 
   if (selectedDateTime.value !== "") {
     const rightFrigginNow = new Date();
@@ -117,13 +146,24 @@ function alarmset() {
 
 
 function alarmcancel() {
+  btnsetalarm.disabled = false;
+  btnsetalarm.style.color = "green";
+  btnsetalarm.style.borderColor = "green";
+
   btnalarmcancel.disabled = true;
-  btnsetalarm.disabled = false;
-  body.style.backgroundImage = "url('./SabatonGrey.jpg')";
-  btnsetalarm.disabled = false;
+  btnalarmcancel.style.color = "red";
+  btnalarmcancel.style.borderColor = "red";
   inputDateTime.value = "";
 
   stopAlarm();
+
+  body.style.backgroundImage = "url('./media/SabatonGrey.jpg')";
+  body.style.transition = "background-image 0.75s ease-in-out";
+
+  
+  realtime.style.opacity = "1.0";
+  Array.from(document.getElementsByTagName("h3")).forEach(h3 => h3.style.opacity = "1.0");
+  Array.from(document.getElementsByTagName("h4")).forEach(h4 => h4.style.opacity = "1.0");
 
   if (timeout) {
     clearTimeout(timeout);

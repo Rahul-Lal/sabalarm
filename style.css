@@ -1,6 +1,6 @@
 body {
     background-color: #131313;
-    background-image: url("./SabatonGrey.jpg");
+    background-image: url("./media/SabatonGrey.jpg");
     background-position: center;
     background-repeat: no-repeat, repeat;
     background-size: cover, auto;
@@ -59,8 +59,6 @@ button:hover {
 }
 
 button:disabled {
-    color: #333333;
-    border-color: #333333;
     cursor: not-allowed;
 }
 
@@ -88,7 +86,7 @@ button:disabled {
 
 @media screen and (max-width: 600px) {
     body {
-        background-image: url("./alt-background.png");
+        background-image: url("./media/alt-background.png");
         background-size: contain, auto;
         height: 100%;
         align-items: center;
