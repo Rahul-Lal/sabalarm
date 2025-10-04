@@ -83,7 +83,7 @@ function stopAlarm() {
     player.stopVideo();
     player.setSize(0, 0); // hide it again
   }
-  body.style.backgroundImage = "url('./media/SabatonDark.jpg')";
+  body.style.backgroundImage = "url('./media/SabatonDark.JPG')";
   body.style.transition = "background-image 0.75s ease-in-out";
   alarmPlaceholder.style.opacity = "1.0";
 
@@ -171,4 +171,5 @@ function alarmcancel() {
   }
 
   console.log("Cancelled!");
+
 }
