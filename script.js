@@ -117,7 +117,7 @@ function alarmset() {
   btnalarmcancel.style.color = "#222222";
   btnalarmcancel.style.borderColor = "#333333";
 
-  body.style.backgroundImage = "url('./media/SabatonDark.jpg')";
+  body.style.backgroundImage = "url('media/SabatonDark.jpg')";
   body.style.transition = "background-image 0.75s ease-in-out";
   realtime.style.opacity = "0.25";
   Array.from(document.getElementsByTagName("h3")).forEach(h3 => h3.style.opacity = "0.25");
@@ -173,3 +173,4 @@ function alarmcancel() {
   console.log("Cancelled!");
 
 }
+
