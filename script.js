@@ -25,6 +25,8 @@ btnalarmcancel.disabled = true;
 // let impHour = document.getElementById("hour");
 // let impMin = document.getElementById("min");
 
+const phoneScreenSize = window.matchMedia("(max-width: 600px)");
+
 let player;
 
 // create Date object for current location
@@ -54,14 +56,20 @@ function playYoutubeAlarm() {
   // Hide placeholder
   alarmPlaceholder.style.display = "none";
 
-  body.style.backgroundImage = "url('./media/SabatonColor.jpg')";
+
+  if (phoneScreenSize.matches) {
+    body.style.backgroundImage = "url('./media/setBackground.png')";
+  }
+  else {
+    body.style.backgroundImage = "url('./media/SabatonColor.jpg')";
+  }
   body.style.transition = "background-image 0.75s ease-in-out";
 
   btnsetalarm.style.color = "green";
   btnsetalarm.style.borderColor = "green";
   btnalarmcancel.style.color = "red";
   btnalarmcancel.style.borderColor = "red";
- 
+
   alarmPlaceholder.style.opacity = "1.0";
 
   realtime.style.opacity = "1.0";
@@ -83,7 +91,8 @@ function stopAlarm() {
     player.stopVideo();
     player.setSize(0, 0); // hide it again
   }
-  body.style.backgroundImage = "url('./media/SabatonDark.JPG')";
+
+  body.style.backgroundImage = "url('./media/SabatonGrey.jpg')";
   body.style.transition = "background-image 0.75s ease-in-out";
   alarmPlaceholder.style.opacity = "1.0";
 
@@ -110,14 +119,20 @@ function timeset(t) {
 
 function alarmset() {
   btnsetalarm.disabled = true;
-  btnsetalarm.style.color = "#222222";
+  btnsetalarm.style.color = "#9e9e9eff";
   btnsetalarm.style.borderColor = "#333333";
 
   btnalarmcancel.disabled = false;
-  btnalarmcancel.style.color = "#222222";
+  btnalarmcancel.style.color = "#9e9e9eff";
   btnalarmcancel.style.borderColor = "#333333";
 
-  body.style.backgroundImage = "url('media/SabatonDark.JPG')";
+
+  if (phoneScreenSize.matches) {
+    body.style.backgroundImage = "url('media/setBackground.png')";
+  }
+  else {
+    body.style.backgroundImage = "url('media/SabatonDark.JPG')";
+  }
   body.style.transition = "background-image 0.75s ease-in-out";
   realtime.style.opacity = "0.25";
   Array.from(document.getElementsByTagName("h3")).forEach(h3 => h3.style.opacity = "0.25");
@@ -157,10 +172,14 @@ function alarmcancel() {
 
   stopAlarm();
 
-  body.style.backgroundImage = "url('./media/SabatonGrey.jpg')";
+  if (phoneScreenSize.matches) {
+    body.style.backgroundImage = "url('./media/alt-background.png')";
+  } else {
+    body.style.backgroundImage = "url('./media/SabatonGrey.jpg')";
+  }
   body.style.transition = "background-image 0.75s ease-in-out";
 
-  
+
   realtime.style.opacity = "1.0";
   Array.from(document.getElementsByTagName("h3")).forEach(h3 => h3.style.opacity = "1.0");
   Array.from(document.getElementsByTagName("h4")).forEach(h4 => h4.style.opacity = "1.0");
