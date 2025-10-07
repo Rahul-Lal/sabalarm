@@ -96,6 +96,10 @@ function stopAlarm() {
   body.style.transition = "background-image 0.75s ease-in-out";
   alarmPlaceholder.style.opacity = "1.0";
 
+  inputDateTime.disabled = false;
+
+  // Hide YouTube video
+
   document.getElementById('player').style.display = 'none';
   alarmPlaceholder.style.display = 'block';
 }
@@ -126,6 +130,7 @@ function alarmset() {
   btnalarmcancel.style.color = "#9e9e9eff";
   btnalarmcancel.style.borderColor = "#333333";
 
+  inputDateTime.disabled = true;
 
   if (phoneScreenSize.matches) {
     body.style.backgroundImage = "url('media/setBackground.png')";
