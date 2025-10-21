@@ -95,8 +95,8 @@ function playYoutubeAlarm() {
     videoId = 'RD0l-cJ-206iQ';
   } else if (songSelection.value === "The Royal Guard") {
     videoId = 'VXM3P8Rmy-U';
-  } else if (songSelection.value === "") {
-    videoId = '';
+  } else if (songSelection.value === "Dreadnought") {
+    videoId = 'RJK0jhymE5A';
   }
 
   if (player) {
