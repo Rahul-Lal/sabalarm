@@ -81,7 +81,22 @@ button:disabled {
     background-color: transparent;
     color: gold;
     font-size: 33px;
-    margin-top: -20px;
+    margin-top: -50px;
+}
+
+#song-selection{
+    font-family: "Share Tech Mono", monospace;
+    background-color: transparent;
+    color: gold;
+    font-size: 33px;
+    margin-top: 10px;
+}
+
+label {
+    font-family: "Share Tech Mono", monospace;
+    color: gold;
+    font-size: 20px;
+    margin-bottom: auto;
 }
 
 @media screen and (max-width: 600px) {

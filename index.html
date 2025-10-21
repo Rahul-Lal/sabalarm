@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabalarm | A Sabaton themed alarm clock</title>
-    
+
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="./media/logo.png">
     <style>
@@ -14,43 +14,48 @@
 </head>
 
 <body id="body" onload="livetime()">
-        <h2 id="h2time">00:00:00</h2>
-        <h3>A alarm clock the plays 'Ghost Division' by Sabaton</h3>
-        <h4>Note: This has no affiliation with the band Sabaton. I am just a fan who codes.</h4>
-<br>
-        <input id="date-time" onchange="timeset(this.value)" type="datetime-local" />
-        <select id="song-selection">
-            <option value="Ghost Division">Ghost Division</option>
-            <option value="Primo Victoria">Primo Victoria</option>
-            <option value="Templars">Templars</option>
-            <option value="To Hell and Back">To Hell and Back</option>
-            <option value="Metal Machine">Metal Machine</option>
-            <option value="The Royal Guard">The Royal Guard</option>
-            <option value="Dreadnought">Dreadnought</option>
-        </select>
+    <h2 id="h2time">00:00:00</h2>
+    <h3>A alarm clock the plays music from Sabaton</h3>
+    <h4>Disclaimer: This has no affiliation with the band Sabaton. I am just a fan who codes.</h4>
+    <br>
+    <label for="date-time">Select Date and Time:</label>
+    <input id="date-time" onchange="timeset(this.value)" type="datetime-local" />
 
-        <br>
-        <button id="alarmset" onclick="alarmset()">
-            Set Alarm
-        </button>
+    <br>
+    <label for="song-selection">Select Song:</label>
+    <select id="song-selection">
+        <option value="Ghost Division">Ghost Division</option>
+        <option value="Primo Victoria">Primo Victoria</option>
+        <option value="Templars">Templars</option>
+        <option value="To Hell and Back">To Hell and Back</option>
+        <option value="Metal Machine">Metal Machine</option>
+        <option value="The Royal Guard">The Royal Guard</option>
+        <option value="Dreadnought">Dreadnought</option>
+    </select>
 
-        <button id="alarmcancel" onclick="alarmcancel()">
-            Cancel Alarm
-        </button>
+    <br>
+    <button id="alarmset" onclick="alarmset()">
+        Set Alarm
+    </button>
 
-        <br>
-        <br>
+    <button id="alarmcancel" onclick="alarmcancel()">
+        Cancel Alarm
+    </button>
 
-        <!-- Placeholder image -->
-        <img id="alarm-placeholder" src="https://i.ytimg.com/vi/ICfzQVh3lvs/hq720.jpg" alt="Ghost Division Thumbnail" width="560" height="315" />
+    <br>
+    <br>
 
-        <!-- Hidden YouTube player -->
-        <div id="player" style="display: none;"></div>
+    <!-- Placeholder image -->
+    <img id="alarm-placeholder" src="https://i.ytimg.com/vi/ICfzQVh3lvs/hq720.jpg" alt="Ghost Division Thumbnail"
+        width="560" height="315" />
+
+    <!-- Hidden YouTube player -->
+    <div id="player" style="display: none;"></div>
 
 
 
-        <script src="script.js"></script>
-        <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 
 </html>
