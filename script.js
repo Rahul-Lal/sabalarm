@@ -25,7 +25,11 @@ btnalarmcancel.disabled = true;
 // let impHour = document.getElementById("hour");
 // let impMin = document.getElementById("min");
 
+const songSelection = document.getElementById("song-selection");
+
 const phoneScreenSize = window.matchMedia("(max-width: 600px)");
+
+const songs = ['ICfzQVh3lvs', 'KVxTJ9Xb9Ec', 'YL_APKnLtJo']; // Example YouTube video IDs
 
 let player;
 
@@ -36,26 +40,25 @@ function livetime() {
   h2time = usedtime;
   realtime.innerHTML = h2time;
 }
-
 // This function gets called by the YouTube IFrame API
-function onYouTubeIframeAPIReady() {
+function createPlayer(videoId) {
   player = new YT.Player('player', {
-    height: '315', // hidden initially
+    height: '315',
     width: '560',
-    videoId: 'ICfzQVh3lvs', // Replace with the YouTube video ID
+    videoId: videoId,
     playerVars: {
-      autoplay: 0,
+      autoplay: 1,
       loop: 1,
       controls: 0,
-      playlist: 'ICfzQVh3lvs' // Loop the same video
+      playlist: videoId
     }
   });
 }
 
+
 function playYoutubeAlarm() {
   // Hide placeholder
   alarmPlaceholder.style.display = "none";
-
 
   if (phoneScreenSize.matches) {
     body.style.backgroundImage = "url('./media/setBackground.png')";
@@ -78,12 +81,31 @@ function playYoutubeAlarm() {
 
   // Show YouTube video
   document.getElementById('player').style.display = 'block';
+  let videoId;
 
-  if (player) {
-    player.playVideo();
-    player.setSize(560, 315); // make it visible when alarm triggers
+  if (songSelection.value === "Ghost Division") {
+    videoId = 'ICfzQVh3lvs';
+  } else if (songSelection.value === "Primo Victoria") {
+    videoId = 'KVxTJ9Xb9Ec';
+  } else if (songSelection.value === "Templars") {
+    videoId = 'YL_APKnLtJo';
+  } else if (songSelection.value === "To Hell and Back") {
+    videoId = 'FBz7MX2bLcM';
+  } else if (songSelection.value === "Metal Machine") {
+    videoId = 'RD0l-cJ-206iQ';
+  } else if (songSelection.value === "The Royal Guard") {
+    videoId = 'VXM3P8Rmy-U';
+  } else if (songSelection.value === "") {
+    videoId = '';
   }
 
+  if (player) {
+    player.loadVideoById(videoId);
+  } else {
+    createPlayer(videoId);
+  }
+
+  player.playVideo();
 }
 
 function stopAlarm() {
@@ -103,12 +125,6 @@ function stopAlarm() {
   document.getElementById('player').style.display = 'none';
   alarmPlaceholder.style.display = 'block';
 }
-
-// function playalarm() {
-//     console.log("Wake Up!");
-//     console.log(ghostdivison.src);
-//     ghostdivison.play();
-// }
 
 function timeset(t) {
   /*
@@ -143,7 +159,16 @@ function alarmset() {
   Array.from(document.getElementsByTagName("h3")).forEach(h3 => h3.style.opacity = "0.25");
   Array.from(document.getElementsByTagName("h4")).forEach(h4 => h4.style.opacity = "0.25");
 
+  if (songSelection.value === "Ghost Division") {
+    alarmPlaceholder.style.backgroundImage = "url('./media/GhostDivision.jpg')";
+  } else if (songSelection.value === "Primo Victoria") {
+    alarmPlaceholder.style.backgroundImage = "url('https://i.ytimg.com/vi/KVxTJ9Xb9Ec/maxresdefault.jpg')";
+  } else if (songSelection.value === "Templars") {
+    alarmPlaceholder.style.backgroundImage = "url('https://i.ytimg.com/vi/YL_APKnLtJo/hq720.jpg')";
+  }
+
   alarmPlaceholder.style.opacity = "0.25";
+
 
   if (selectedDateTime.value !== "") {
     const rightFrigginNow = new Date();
