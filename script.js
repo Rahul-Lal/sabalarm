@@ -74,7 +74,8 @@ function playYoutubeAlarm() {
   btnalarmcancel.style.borderColor = "red";
 
   alarmPlaceholder.style.opacity = "1.0";
-
+  selectedDateTime.style.opacity = "1.0";
+  songSelection.style.opacity = "1.0";
   realtime.style.opacity = "1.0";
   Array.from(document.getElementsByTagName("h3")).forEach(h3 => h3.style.opacity = "1.0");
   Array.from(document.getElementsByTagName("h4")).forEach(h4 => h4.style.opacity = "1.0");
@@ -152,7 +153,12 @@ function alarmset() {
   btnalarmcancel.style.color = "#9e9e9eff";
   btnalarmcancel.style.borderColor = "#333333";
 
-  inputDateTime.disabled = true;
+  selectedDateTime.disabled = true;
+  selectedDateTime.style.opacity = "0.25";
+
+  songSelection.disabled = true;
+  songSelection.style.opacity = "0.25";
+
 
   if (phoneScreenSize.matches) {
     body.style.backgroundImage = "url('media/setBackground.png')";
@@ -234,6 +240,13 @@ function alarmcancel() {
   btnalarmcancel.disabled = true;
   btnalarmcancel.style.color = "red";
   btnalarmcancel.style.borderColor = "red";
+
+  selectedDateTime.disabled = false;
+  selectedDateTime.style.opacity = "1.0";
+  songSelection.disabled = false;
+  songSelection.style.opacity = "1.0";
+
+  selectedDateTime.value = "";
   inputDateTime.value = "";
 
   stopAlarm();
