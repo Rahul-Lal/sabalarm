@@ -23,7 +23,7 @@
 
     <br>
     <label for="song-selection">Select Song:</label>
-    <select id="song-selection">
+    <select id="song-selection" onchange="thumbnailChange()">
         <option value="Ghost Division">Ghost Division</option>
         <option value="Primo Victoria">Primo Victoria</option>
         <option value="Templars">Templars</option>
@@ -31,6 +31,9 @@
         <option value="White Death">White Death</option>
         <option value="The Royal Guard">The Royal Guard</option>
         <option value="Dreadnought">Dreadnought</option>
+        <option value="Bismarck">Bismarck</option>
+        <option value="Soldiers of Heaven">Soldiers of Heaven</option>
+        <option value="Steel Commanders">Steel Commanders</option>
     </select>
 
     <br>
@@ -46,8 +49,7 @@
     <br>
 
     <!-- Placeholder image -->
-    <img id="alarm-placeholder" src="https://i.ytimg.com/vi/ICfzQVh3lvs/hq720.jpg" alt="Ghost Division Thumbnail"
-        width="560" height="315" />
+    <img id="alarm-placeholder" src="https://i.ytimg.com/vi/ICfzQVh3lvs/hq720.jpg" alt="Ghost Division Thumbnail" width="560" height="315" />
 
     <!-- Hidden YouTube player -->
     <div id="player" style="display: none;"></div>

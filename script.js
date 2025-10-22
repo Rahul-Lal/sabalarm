@@ -97,6 +97,12 @@ function playYoutubeAlarm() {
     videoId = 'VXM3P8Rmy-U';
   } else if (songSelection.value === "Dreadnought") {
     videoId = 'RJK0jhymE5A';
+  } else if (songSelection.value === "Bismarck") {
+    videoId = 'EWKX3wass9s';
+  } else if (songSelection.value === "Soldiers of Heaven") {
+    videoId = '7c_JYtOVOpE';
+  } else if (songSelection.value === "Steel Commanders") {
+    videoId = '3QRkn_lxpec';
   }
 
   if (player) {
@@ -159,13 +165,6 @@ function alarmset() {
   Array.from(document.getElementsByTagName("h3")).forEach(h3 => h3.style.opacity = "0.25");
   Array.from(document.getElementsByTagName("h4")).forEach(h4 => h4.style.opacity = "0.25");
 
-  if (songSelection.value === "Ghost Division") {
-    alarmPlaceholder.style.backgroundImage = "url('./media/GhostDivision.jpg')";
-  } else if (songSelection.value === "Primo Victoria") {
-    alarmPlaceholder.style.backgroundImage = "url('https://i.ytimg.com/vi/KVxTJ9Xb9Ec/maxresdefault.jpg')";
-  } else if (songSelection.value === "Templars") {
-    alarmPlaceholder.style.backgroundImage = "url('https://i.ytimg.com/vi/YL_APKnLtJo/hq720.jpg')";
-  }
 
   alarmPlaceholder.style.opacity = "0.25";
 
@@ -189,6 +188,43 @@ function alarmset() {
   }
 }
 
+//3QRkn_lxpec 
+
+function thumbnailChange() {
+  if (songSelection.value === "Ghost Division") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/ICfzQVh3lvs/hq720.jpg';
+    alarmPlaceholder.alt = 'Ghost Division Thumbnail';
+    alarmPlaceholder.style.transition = "src 0.75s ease-in-out";
+  } else if (songSelection.value === "Primo Victoria") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/KVxTJ9Xb9Ec/hq720.jpg';
+    alarmPlaceholder.alt = 'Primo Victoria Thumbnail';
+  } else if (songSelection.value === "Templars") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/YL_APKnLtJo/hq720.jpg';
+    alarmPlaceholder.alt = 'Templars Thumbnail';
+  } else if (songSelection.value === "To Hell and Back") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/FBz7MX2bLcM/hq720.jpg';
+    alarmPlaceholder.alt = 'To Hell and Back Thumbnail';
+  } else if (songSelection.value === "White Death") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/JRIfWazqIQ8/hq720.jpg';
+    alarmPlaceholder.alt = 'White Death Thumbnail';
+  } else if (songSelection.value === "The Royal Guard") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/VXM3P8Rmy-U/hq720.jpg';
+    alarmPlaceholder.alt = 'The Royal Guard Thumbnail';
+  } else if (songSelection.value === "Bismarck") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/EWKX3wass9s/hq720.jpg';
+    alarmPlaceholder.alt = 'Bismarck Thumbnail';
+  } else if (songSelection.value === "Dreadnought") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/RJK0jhymE5A/hq720.jpg';
+    alarmPlaceholder.alt = 'Dreadnought Thumbnail';
+  } else if (songSelection.value === "Soldiers of Heaven") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/7c_JYtOVOpE/hq720.jpg';
+    alarmPlaceholder.alt = 'Soldiers of Heaven Thumbnail';
+  } else if (songSelection.value === "Steel Commanders") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/3QRkn_lxpec/hq720.jpg';
+    alarmPlaceholder.alt = 'Steel Commanders Thumbnail';
+  }
+  
+}
 
 function alarmcancel() {
   btnsetalarm.disabled = false;
