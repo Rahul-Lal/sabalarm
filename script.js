@@ -91,8 +91,8 @@ function playYoutubeAlarm() {
     videoId = 'YL_APKnLtJo';
   } else if (songSelection.value === "To Hell and Back") {
     videoId = 'FBz7MX2bLcM';
-  } else if (songSelection.value === "Metal Machine") {
-    videoId = 'RD0l-cJ-206iQ';
+  } else if (songSelection.value === "White Death") {
+    videoId = 'JRIfWazqIQ8';
   } else if (songSelection.value === "The Royal Guard") {
     videoId = 'VXM3P8Rmy-U';
   } else if (songSelection.value === "Dreadnought") {
