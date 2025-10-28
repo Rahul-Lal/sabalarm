@@ -29,9 +29,12 @@ const songSelection = document.getElementById("song-selection");
 
 const phoneScreenSize = window.matchMedia("(max-width: 600px)");
 
-const songs = ['ICfzQVh3lvs', 'KVxTJ9Xb9Ec', 'YL_APKnLtJo']; // Example YouTube video IDs
+const xmasOption = document.getElementById("xmasTruceOption");
+xmasOption.style.display = "none";
 
 let player;
+
+christmasTruceAppears();
 
 // create Date object for current location
 function livetime() {
@@ -234,7 +237,7 @@ function thumbnailChange() {
     alarmPlaceholder.src = 'https://i.ytimg.com/vi/goXDAFtkJLw/hq720.jpg';
     alarmPlaceholder.alt = 'Christmas Truce Thumbnail';
   }
-  
+
 }
 
 function alarmcancel() {
@@ -277,3 +280,24 @@ function alarmcancel() {
 
 }
 
+function christmasTruceAppears() {
+
+    
+  let dateNow = new Date();
+  let month = dateNow.getMonth();
+  console.log(month);
+
+
+  if (month === 9) {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/goXDAFtkJLw/hq720.jpg';
+    alarmPlaceholder.alt = 'Christmas Truce Thumbnail';
+    xmasOption.style.display = "block";
+    xmasOption.disabled = false;
+    thumbnailChange();
+  }
+  else {
+    xmasOption.style.display = "none";
+    xmasOption.disabled = true;
+  }
+
+}
