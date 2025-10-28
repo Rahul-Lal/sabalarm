@@ -291,11 +291,12 @@ function alarmcancel() {
 
 function christmasTruceAppears() {
   let dateNow = new Date();
+  let day = dateNow.getDate();
   let month = dateNow.getMonth();
   console.log(month);
 
 
-  if (month === 11) {
+  if ((month === 11) && (day >= 23 || day <= 26)) {
     songSelection.value = "Christmas Truce";
     xmasOption.style.display = "block";
     xmasOption.disabled = false;
@@ -316,15 +317,15 @@ function deadMenAppears() {
   console.log(month);
 
 
-  if ((month === 9) && (day === 31)) {
+  if (((month === 9) && (day === 31)) || ((month === 7) && (day === 9))) {
     songSelection.value = "The Attack of the Dead Men";
-    xmasOption.style.display = "block";
-    xmasOption.disabled = false;
+    deadMenOption.style.display = "block";
+    deadMenOption.disabled = false;
     thumbnailChange();
   }
   else {
-    xmasOption.style.display = "none";
-    xmasOption.disabled = true;
+    deadMenOption.style.display = "none";
+    deadMenOption.disabled = true;
   }
 
 }
