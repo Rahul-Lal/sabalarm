@@ -104,6 +104,8 @@ function playYoutubeAlarm() {
     videoId = '7c_JYtOVOpE';
   } else if (songSelection.value === "Steel Commanders") {
     videoId = '3QRkn_lxpec';
+  } else if (songSelection.value === "Christmas Truce") {
+    videoId = 'goXDAFtkJLw';
   }
 
   if (player) {
@@ -228,6 +230,9 @@ function thumbnailChange() {
   } else if (songSelection.value === "Steel Commanders") {
     alarmPlaceholder.src = 'https://i.ytimg.com/vi/3QRkn_lxpec/hq720.jpg';
     alarmPlaceholder.alt = 'Steel Commanders Thumbnail';
+  } else if (songSelection.value === "Christmas Truce") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/goXDAFtkJLw/hq720.jpg';
+    alarmPlaceholder.alt = 'Christmas Truce Thumbnail';
   }
   
 }
