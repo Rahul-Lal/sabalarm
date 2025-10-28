@@ -31,9 +31,12 @@ const phoneScreenSize = window.matchMedia("(max-width: 600px)");
 
 const xmasOption = document.getElementById("xmasTruceOption");
 xmasOption.style.display = "none";
+const deadMenOption = document.getElementById("deadMenOption");
+deadMenOption.style.display = "none";
 
 let player;
 
+deadMenAppears();
 christmasTruceAppears();
 
 // create Date object for current location
@@ -109,8 +112,11 @@ function playYoutubeAlarm() {
     videoId = '3QRkn_lxpec';
   } else if (songSelection.value === "Christmas Truce") {
     videoId = 'goXDAFtkJLw';
+  } else if (songSelection.value === "The Attack of the Dead Men") {
+    videoId = '-AFdwoyNT24';
   }
 
+  // -AFdwoyNT24
   if (player) {
     player.loadVideoById(videoId);
   } else {
@@ -236,6 +242,9 @@ function thumbnailChange() {
   } else if (songSelection.value === "Christmas Truce") {
     alarmPlaceholder.src = 'https://i.ytimg.com/vi/goXDAFtkJLw/hq720.jpg';
     alarmPlaceholder.alt = 'Christmas Truce Thumbnail';
+  } else if (songSelection.value === "The Attack of the Dead Men") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/-AFdwoyNT24/maxresdefault.jpg';
+    alarmPlaceholder.alt = 'The Attack of the Dead Men Thumbnail';
   }
 
 }
@@ -288,6 +297,27 @@ function christmasTruceAppears() {
 
   if (month === 11) {
     songSelection.value = "Christmas Truce";
+    xmasOption.style.display = "block";
+    xmasOption.disabled = false;
+    thumbnailChange();
+  }
+  else {
+    xmasOption.style.display = "none";
+    xmasOption.disabled = true;
+  }
+
+}
+
+function deadMenAppears() {
+  let dateNow = new Date();
+  let month = dateNow.getMonth();
+  let day = dateNow.getDate();
+  console.log(day);
+  console.log(month);
+
+
+  if ((month === 9) && (day === 31)) {
+    songSelection.value = "The Attack of the Dead Men";
     xmasOption.style.display = "block";
     xmasOption.disabled = false;
     thumbnailChange();
