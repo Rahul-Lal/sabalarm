@@ -281,16 +281,13 @@ function alarmcancel() {
 }
 
 function christmasTruceAppears() {
-
-    
   let dateNow = new Date();
   let month = dateNow.getMonth();
   console.log(month);
 
 
-  if (month === 9) {
-    alarmPlaceholder.src = 'https://i.ytimg.com/vi/goXDAFtkJLw/hq720.jpg';
-    alarmPlaceholder.alt = 'Christmas Truce Thumbnail';
+  if (month === 11) {
+    songSelection.value = "Christmas Truce";
     xmasOption.style.display = "block";
     xmasOption.disabled = false;
     thumbnailChange();
