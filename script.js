@@ -25,19 +25,22 @@ btnalarmcancel.disabled = true;
 // let impHour = document.getElementById("hour");
 // let impMin = document.getElementById("min");
 
-const songSelection = document.getElementById("song-selection");
-
 const phoneScreenSize = window.matchMedia("(max-width: 600px)");
+
+const songSelection = document.getElementById("song-selection");
 
 const xmasOption = document.getElementById("xmasTruceOption");
 xmasOption.style.display = "none";
 const deadMenOption = document.getElementById("deadMenOption");
 deadMenOption.style.display = "none";
+const verdunOption = document.getElementById("verdunOption");
+verdunOption.style.display = "none";
 
 let player;
 
 deadMenAppears();
 christmasTruceAppears();
+verdunAppears();
 
 // create Date object for current location
 function livetime() {
@@ -114,9 +117,10 @@ function playYoutubeAlarm() {
     videoId = 'goXDAFtkJLw';
   } else if (songSelection.value === "The Attack of the Dead Men") {
     videoId = '-AFdwoyNT24';
+  } else if (songSelection.value === "Fields of Verdun") {
+    videoId = 'yJDBmP9Mexk';
   }
 
-  // -AFdwoyNT24
   if (player) {
     player.loadVideoById(videoId);
   } else {
@@ -205,7 +209,6 @@ function alarmset() {
   }
 }
 
-//3QRkn_lxpec 
 
 function thumbnailChange() {
   if (songSelection.value === "Ghost Division") {
@@ -245,6 +248,9 @@ function thumbnailChange() {
   } else if (songSelection.value === "The Attack of the Dead Men") {
     alarmPlaceholder.src = 'https://i.ytimg.com/vi/-AFdwoyNT24/maxresdefault.jpg';
     alarmPlaceholder.alt = 'The Attack of the Dead Men Thumbnail';
+  } else if (songSelection.value === "Fields of Verdun") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/yJDBmP9Mexk/hq720.jpg';
+    alarmPlaceholder.alt = 'Fields of Verdun Thumbnail';
   }
 
 }
@@ -328,4 +334,22 @@ function deadMenAppears() {
     deadMenOption.disabled = true;
   }
 
+}
+
+function verdunAppears() {
+  let dateNow = new Date();
+  let month = dateNow.getMonth();
+  let day = dateNow.getDate();
+  console.log(day);
+  console.log(month);
+
+  if(() || ()) {
+    songSelection.value = "Fields of Verdun";
+    verdunOption.style.display = "block";
+    verdunOption.disabled = false;
+    thumbnailChange();
+  } else {
+    verdunOption.style.display = "none";
+    verdunOption.disabled = true;
+  }
 }
