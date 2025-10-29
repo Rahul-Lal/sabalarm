@@ -38,6 +38,23 @@ verdunOption.style.display = "none";
 const primoVictoriaOption = document.getElementById("primoVictoriaOption");
 primoVictoriaOption.style.display = "none";
 
+const songs = {
+  "Ghost Division": "ICfzQVh3lvs",
+  "Primo Victoria": "KVxTJ9Xb9Ec",
+  "Templars": "YL_APKnLtJo",
+  "To Hell and Back": "FBz7MX2bLcM",
+  "Metal Machine": "0l-cJ-206iQ",
+  "White Death": "JRIfWazqIQ8",
+  "The Royal Guard": "VXM3P8Rmy-U",
+  "Dreadnought": "RJK0jhymE5A",
+  "Bismarck": "EWKX3wass9s",
+  "Soldiers of Heaven": "7c_JYtOVOpE",
+  "Steel Commanders": "3QRkn_lxpec",
+  "Christmas Truce": "goXDAFtkJLw",
+  "The Attack of the Dead Men": "-AFdwoyNT24",
+  "Fields of Verdun": "yJDBmP9Mexk"
+};
+
 let player;
 
 deadMenAppears();
@@ -97,33 +114,12 @@ function playYoutubeAlarm() {
   document.getElementById('player').style.display = 'block';
   let videoId;
 
-  if (songSelection.value === "Ghost Division") {
-    videoId = 'ICfzQVh3lvs';
-  } else if (songSelection.value === "Primo Victoria") {
-    videoId = 'KVxTJ9Xb9Ec';
-  } else if (songSelection.value === "Templars") {
-    videoId = 'YL_APKnLtJo';
-  } else if (songSelection.value === "To Hell and Back") {
-    videoId = 'FBz7MX2bLcM';
-  } else if (songSelection.value === "White Death") {
-    videoId = 'JRIfWazqIQ8';
-  } else if (songSelection.value === "The Royal Guard") {
-    videoId = 'VXM3P8Rmy-U';
-  } else if (songSelection.value === "Dreadnought") {
-    videoId = 'RJK0jhymE5A';
-  } else if (songSelection.value === "Bismarck") {
-    videoId = 'EWKX3wass9s';
-  } else if (songSelection.value === "Soldiers of Heaven") {
-    videoId = '7c_JYtOVOpE';
-  } else if (songSelection.value === "Steel Commanders") {
-    videoId = '3QRkn_lxpec';
-  } else if (songSelection.value === "Christmas Truce") {
-    videoId = 'goXDAFtkJLw';
-  } else if (songSelection.value === "The Attack of the Dead Men") {
-    videoId = '-AFdwoyNT24';
-  } else if (songSelection.value === "Fields of Verdun") {
-    videoId = 'yJDBmP9Mexk';
-  }
+for (const [song, id] of Object.entries(songs)) {
+    if (songSelection.value === song) {
+        videoId = id;
+        break;
+    }
+}
 
   if (player) {
     player.loadVideoById(videoId);
@@ -254,6 +250,9 @@ function thumbnailChange() {
   } else if (songSelection.value === "Fields of Verdun") {
     alarmPlaceholder.src = 'https://i.ytimg.com/vi/yJDBmP9Mexk/hq720.jpg';
     alarmPlaceholder.alt = 'Fields of Verdun Thumbnail';
+  } else if (songSelection.value === "Metal Machine") {
+    alarmPlaceholder.src = 'https://i.ytimg.com/vi/0l-cJ-206iQ/hq720.jpg';
+    alarmPlaceholder.alt = 'Metal Machine Thumbnail';
   }
 
 }
