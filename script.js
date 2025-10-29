@@ -35,12 +35,16 @@ const deadMenOption = document.getElementById("deadMenOption");
 deadMenOption.style.display = "none";
 const verdunOption = document.getElementById("verdunOption");
 verdunOption.style.display = "none";
+const primoVictoriaOption = document.getElementById("primoVictoriaOption");
+primoVictoriaOption.style.display = "none";
 
 let player;
 
 deadMenAppears();
 christmasTruceAppears();
+dDayAppears();
 verdunAppears();
+
 
 // create Date object for current location
 function livetime() {
@@ -209,7 +213,6 @@ function alarmset() {
   }
 }
 
-
 function thumbnailChange() {
   if (songSelection.value === "Ghost Division") {
     alarmPlaceholder.src = 'https://i.ytimg.com/vi/ICfzQVh3lvs/hq720.jpg';
@@ -336,15 +339,38 @@ function deadMenAppears() {
 
 }
 
-function verdunAppears() {
+function dDayAppears() {
   let dateNow = new Date();
-  let month = dateNow.getMonth();
   let day = dateNow.getDate();
-  console.log(day);
+  let month = dateNow.getMonth();
   console.log(month);
 
-  if(() || ()) {
-    songSelection.value = "Fields of Verdun";
+
+  if ((month === 5) && (day === 6)) {
+    songSelection.value = "Primo Victoria";
+    primoVictoriaOption.style.display = "block";
+    primoVictoriaOption.disabled = false;
+    thumbnailChange();
+  }
+  else {
+    primoVictoriaOption.style.display = "none";
+    primoVictoriaOption.disabled = true;
+  }
+}
+
+function verdunAppears() {
+  let dateNow = new Date();
+  let month = dateNow.getMonth(); // 0 = January
+  let day = dateNow.getDate();
+
+  console.log(`Day: ${day}`);
+  console.log(`Month: ${month}`);
+
+  // Verdun range: February 21 (month 1, day 21) to December 18 (month 11, day 18)
+  const isAfterStart = (month > 1) || (month === 1 && day >= 21);
+  const isBeforeEnd = (month < 11) || (month === 11 && day <= 18);
+
+  if (isAfterStart && isBeforeEnd) {
     verdunOption.style.display = "block";
     verdunOption.disabled = false;
     thumbnailChange();
