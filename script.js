@@ -29,14 +29,23 @@ const phoneScreenSize = window.matchMedia("(max-width: 600px)");
 
 const songSelection = document.getElementById("song-selection");
 
+// Element for "Christmas Truce"
 const xmasOption = document.getElementById("xmasTruceOption");
 xmasOption.style.display = "none";
+
+// Element for "The Attack of the Dead Men"
 const deadMenOption = document.getElementById("deadMenOption");
 deadMenOption.style.display = "none";
+
+// Element for "Fields of Verdun"
 const verdunOption = document.getElementById("verdunOption");
 verdunOption.style.display = "none";
+
+// Element for "Primo Victoria"
 const primoVictoriaOption = document.getElementById("primoVictoriaOption");
 primoVictoriaOption.style.display = "none";
+
+// Element for "To Hell and Back"
 const hellAndBackOption = document.getElementById("hellAndBackOption");
 hellAndBackOption.style.display = "none";
 
@@ -363,4 +372,5 @@ function verdunAppears() {
     verdunOption.style.display = "none";
     verdunOption.disabled = true;
   }
+
 }
