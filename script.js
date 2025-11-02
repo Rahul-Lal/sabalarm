@@ -49,6 +49,7 @@ primoVictoriaOption.style.display = "none";
 const hellAndBackOption = document.getElementById("hellAndBackOption");
 hellAndBackOption.style.display = "none";
 
+// { Songs name } : { Youtube ID }
 const songs = {
   "Ghost Division": "ICfzQVh3lvs",
   "Primo Victoria": "KVxTJ9Xb9Ec",
@@ -113,6 +114,7 @@ function playYoutubeAlarm() {
   // Hide placeholder
   alarmPlaceholder.style.display = "none";
 
+// For viewing app via mobile
   if (phoneScreenSize.matches) {
     body.style.backgroundImage = "url('./media/setBackground.png')";
   }
@@ -374,3 +376,4 @@ function verdunAppears() {
   }
 
 }
+
