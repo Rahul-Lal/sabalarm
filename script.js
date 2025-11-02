@@ -37,6 +37,8 @@ const verdunOption = document.getElementById("verdunOption");
 verdunOption.style.display = "none";
 const primoVictoriaOption = document.getElementById("primoVictoriaOption");
 primoVictoriaOption.style.display = "none";
+const hellAndBackOption = document.getElementById("hellAndBackOption");
+hellAndBackOption.style.display = "none";
 
 const songs = {
   "Ghost Division": "ICfzQVh3lvs",
@@ -57,11 +59,23 @@ const songs = {
 
 let player;
 
-deadMenAppears();
-christmasTruceAppears();
-dDayAppears();
+// 9th August - The Attack of the Dead Men
+specialDaysAppear(7, 9, deadMenOption, "The Attack of the Dead Men");
+
+// 25 December - Christmas Truce (On Christmas Day)
+specialDaysAppear(11, 25, xmasOption, "Christmas Truce");
+
+// 6 June - Primo Victoria (D-Day/Normandy Landings)
+specialDaysAppear(5, 6, primoVictoriaOption, "Primo Victoria");
+
+// Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun)
 verdunAppears();
 
+// 20 June - To Hell and Back (Audie Murphy's Birthday)
+specialDaysAppear(5, 20, hellAndBackOption, "To Hell and Back");
+
+// 17 December - White Death (Simo Häyhä's Birthday)
+specialDaysAppear(11, 17, whiteDeathOption, "White Death");
 
 // create Date object for current location
 function livetime() {
@@ -308,66 +322,26 @@ function alarmcancel() {
 
 }
 
-function christmasTruceAppears() {
+
+// Function to handle special day appearances
+function specialDaysAppear(certainMonth, certainDay, optionElement, songName) {
   let dateNow = new Date();
   let day = dateNow.getDate();
   let month = dateNow.getMonth();
-  console.log(month);
+  console.log(`month: ${month} / day: ${day}`);
 
-
-  if ((month === 11) && (day >= 23 || day <= 26)) {
-    songSelection.value = "Christmas Truce";
-    xmasOption.style.display = "block";
-    xmasOption.disabled = false;
-    thumbnailChange();
-  }
-  else {
-    xmasOption.style.display = "none";
-    xmasOption.disabled = true;
-  }
-
-}
-
-function deadMenAppears() {
-  let dateNow = new Date();
-  let month = dateNow.getMonth();
-  let day = dateNow.getDate();
-  console.log(day);
-  console.log(month);
-
-
-  if (((month === 9) && (day === 31)) || ((month === 7) && (day === 9))) {
-    songSelection.value = "The Attack of the Dead Men";
-    deadMenOption.style.display = "block";
-    deadMenOption.disabled = false;
-    thumbnailChange();
-  }
-  else {
-    deadMenOption.style.display = "none";
-    deadMenOption.disabled = true;
-  }
-
-}
-
-function dDayAppears() {
-  let dateNow = new Date();
-  let day = dateNow.getDate();
-  let month = dateNow.getMonth();
-  console.log(month);
-
-
-  if ((month === 5) && (day === 6)) {
-    songSelection.value = "Primo Victoria";
-    primoVictoriaOption.style.display = "block";
-    primoVictoriaOption.disabled = false;
-    thumbnailChange();
-  }
-  else {
-    primoVictoriaOption.style.display = "none";
-    primoVictoriaOption.disabled = true;
+  if ((month === certainMonth) && (day === certainDay)) {
+    songSelection.value = songName;
+    optionElement.style.display = "block";
+    optionElement.disabled = false;
+  } else {
+    optionElement.style.display = "none";
+    optionElement.disabled = true;
   }
 }
 
+
+// Function to handle Verdun appearance (Feb 21 - Dec 18), inclusive 
 function verdunAppears() {
   let dateNow = new Date();
   let month = dateNow.getMonth(); // 0 = January
@@ -377,6 +351,7 @@ function verdunAppears() {
   console.log(`Month: ${month}`);
 
   // Verdun range: February 21 (month 1, day 21) to December 18 (month 11, day 18)
+  // The days that the battle of Verdun took place
   const isAfterStart = (month > 1) || (month === 1 && day >= 21);
   const isBeforeEnd = (month < 11) || (month === 11 && day <= 18);
 
