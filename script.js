@@ -1,8 +1,4 @@
-/*
-    functions: myFunction(), onYouTubeIframeAPIReady(), onPlayerReady(event), onPlayerStateChange(event), stopVideo() credited to link below
-    - Link: https://stackoverflow.com/questions/42711959/play-youtube-video-on-click
-*/
-// location.reload();
+//
 setInterval(livetime, 1000);
 
 let date = new Date().toLocaleString("en-NZ");
@@ -69,23 +65,23 @@ const songs = {
 
 let player;
 
-// 9th August - The Attack of the Dead Men
+// 9th August - The Attack of the Dead Men - https://www.warhistoryonline.com/war-articles/dead.html
 specialDaysAppear(7, 9, deadMenOption, "The Attack of the Dead Men");
 
-// 25 December - Christmas Truce (On Christmas Day)
+// 25 December - Christmas Truce (On Christmas Day) - https://www.iwm.org.uk/history/the-real-story-of-the-christmas-truce
 specialDaysAppear(11, 25, xmasOption, "Christmas Truce");
 
-// 6 June - Primo Victoria (D-Day/Normandy Landings)
+// 6 June - Primo Victoria (D-Day/Normandy Landings) - https://www.bbc.com/news/world-48513108
 specialDaysAppear(5, 6, primoVictoriaOption, "Primo Victoria");
 
-// Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun)
-verdunAppears();
-
-// 20 June - To Hell and Back (Audie Murphy's Birthday)
+// 20 June - To Hell and Back (Audie Murphy's Birthday) - https://www.audiemurphy.com/
 specialDaysAppear(5, 20, hellAndBackOption, "To Hell and Back");
 
-// 17 December - White Death (Simo Häyhä's Birthday)
+// 17 December - White Death (Simo Häyhä's Birthday) - https://warfarehistorynetwork.com/article/finnish-sniper-simo-hayha/
 specialDaysAppear(11, 17, whiteDeathOption, "White Death");
+
+// Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
+verdunAppears();
 
 // create Date object for current location
 function livetime() {
@@ -376,4 +372,5 @@ function verdunAppears() {
   }
 
 }
+
 
