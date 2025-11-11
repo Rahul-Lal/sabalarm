@@ -18,12 +18,10 @@ let btnalarmcancel = document.getElementById("alarmcancel");
 let body = document.getElementById("body");
 let alarmPlaceholder = document.getElementById("alarm-placeholder");
 btnalarmcancel.disabled = true;
-// let impHour = document.getElementById("hour");
-// let impMin = document.getElementById("min");
-
 const phoneScreenSize = window.matchMedia("(max-width: 600px)");
 
 const songSelection = document.getElementById("song-selection");
+
 
 // 25 December - Christmas Truce (On Christmas Day) - https://www.iwm.org.uk/history/the-real-story-of-the-christmas-truce
 const xmasOption = document.getElementById("xmasTruceOption");
@@ -116,7 +114,7 @@ function playYoutubeAlarm() {
   // Hide placeholder
   alarmPlaceholder.style.display = "none";
 
-// For viewing app via mobile
+  // For viewing app via mobile
   if (phoneScreenSize.matches) {
     body.style.backgroundImage = "url('./media/setBackground.png')";
   }
@@ -141,12 +139,12 @@ function playYoutubeAlarm() {
   document.getElementById('player').style.display = 'block';
   let videoId;
 
-for (const [song, id] of Object.entries(songs)) {
+  for (const [song, id] of Object.entries(songs)) {
     if (songSelection.value === song) {
-        videoId = id;
-        break;
+      videoId = id;
+      break;
     }
-}
+  }
 
   if (player) {
     player.loadVideoById(videoId);
@@ -237,59 +235,14 @@ function alarmset() {
 }
 
 function thumbnailChange() {
-  for(let key in songs) {
-    if(songSelection.value === key) {
+  for (let key in songs) {
+    if (songSelection.value === key) {
       console.log(`Selected song: ${key}, Video ID: ${songs[key]}`);
       alarmPlaceholder.src = `https://i.ytimg.com/vi/${songs[key]}/hq720.jpg`;
       alarmPlaceholder.alt = `${key} Thumbnail`;
       alarmPlaceholder.style.transition = "src 0.75s ease-in-out";
     }
   }
-
-  // if (songSelection.value === "Ghost Division") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/ICfzQVh3lvs/hq720.jpg';
-  //   alarmPlaceholder.alt = 'Ghost Division Thumbnail';
-  //   alarmPlaceholder.style.transition = "src 0.75s ease-in-out";
-  // } else if (songSelection.value === "Primo Victoria") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/KVxTJ9Xb9Ec/hq720.jpg';
-  //   alarmPlaceholder.alt = 'Primo Victoria Thumbnail';
-  // } else if (songSelection.value === "Templars") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/YL_APKnLtJo/hq720.jpg';
-  //   alarmPlaceholder.alt = 'Templars Thumbnail';
-  // } else if (songSelection.value === "To Hell and Back") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/FBz7MX2bLcM/hq720.jpg';
-  //   alarmPlaceholder.alt = 'To Hell and Back Thumbnail';
-  // } else if (songSelection.value === "White Death") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/JRIfWazqIQ8/hq720.jpg';
-  //   alarmPlaceholder.alt = 'White Death Thumbnail';
-  // } else if (songSelection.value === "The Royal Guard") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/VXM3P8Rmy-U/hq720.jpg';
-  //   alarmPlaceholder.alt = 'The Royal Guard Thumbnail';
-  // } else if (songSelection.value === "Bismarck") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/EWKX3wass9s/hq720.jpg';
-  //   alarmPlaceholder.alt = 'Bismarck Thumbnail';
-  // } else if (songSelection.value === "Dreadnought") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/RJK0jhymE5A/hq720.jpg';
-  //   alarmPlaceholder.alt = 'Dreadnought Thumbnail';
-  // } else if (songSelection.value === "Soldiers of Heaven") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/7c_JYtOVOpE/hq720.jpg';
-  //   alarmPlaceholder.alt = 'Soldiers of Heaven Thumbnail';
-  // } else if (songSelection.value === "Steel Commanders") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/3QRkn_lxpec/hq720.jpg';
-  //   alarmPlaceholder.alt = 'Steel Commanders Thumbnail';
-  // } else if (songSelection.value === "Christmas Truce") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/goXDAFtkJLw/hq720.jpg';
-  //   alarmPlaceholder.alt = 'Christmas Truce Thumbnail';
-  // } else if (songSelection.value === "The Attack of the Dead Men") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/-AFdwoyNT24/maxresdefault.jpg';
-  //   alarmPlaceholder.alt = 'The Attack of the Dead Men Thumbnail';
-  // } else if (songSelection.value === "Fields of Verdun") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/yJDBmP9Mexk/hq720.jpg';
-  //   alarmPlaceholder.alt = 'Fields of Verdun Thumbnail';
-  // } else if (songSelection.value === "Metal Machine") {
-  //   alarmPlaceholder.src = 'https://i.ytimg.com/vi/0l-cJ-206iQ/hq720.jpg';
-  //   alarmPlaceholder.alt = 'Metal Machine Thumbnail';
-  // }
 
 }
 
@@ -332,7 +285,6 @@ function alarmcancel() {
   }
 
   console.log("Cancelled!");
-
 }
 
 
@@ -378,5 +330,3 @@ function verdunAppears() {
   }
 
 }
-
-
