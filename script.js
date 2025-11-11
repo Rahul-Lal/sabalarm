@@ -65,6 +65,8 @@ shiroyamaOption.style.display = "none";
 // 24 September - Shiroyama (Satsuma Rebellion) - https://www.britannica.com/event/Satsuma-Rebellion
 specialDaysAppear(8, 24, shiroyamaOption, "Shiroyama");
 
+
+
 // { Songs name } : { Youtube ID }
 const songs = {
   "Ghost Division": "ICfzQVh3lvs",
