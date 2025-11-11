@@ -40,6 +40,8 @@ specialDaysAppear(7, 9, deadMenOption, "The Attack of the Dead Men");
 // Element for "Fields of Verdun"
 const verdunOption = document.getElementById("verdunOption");
 verdunOption.style.display = "none";
+// Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
+verdunAppears();
 
 // Element for "Primo Victoria"
 const primoVictoriaOption = document.getElementById("primoVictoriaOption");
@@ -58,6 +60,11 @@ whiteDeathOption.style.display = "none";
 // 17 December - White Death (Simo Häyhä's Birthday) - https://warfarehistorynetwork.com/article/finnish-sniper-simo-hayha/
 specialDaysAppear(11, 17, whiteDeathOption, "White Death");
 
+const shiroyamaOption = document.getElementById("shiroyamaOption");
+shiroyamaOption.style.display = "none";
+// 24 September - Shiroyama (Satsuma Rebellion) - https://www.britannica.com/event/Satsuma-Rebellion
+specialDaysAppear(8, 24, shiroyamaOption, "Shiroyama");
+
 // { Songs name } : { Youtube ID }
 const songs = {
   "Ghost Division": "ICfzQVh3lvs",
@@ -73,18 +80,11 @@ const songs = {
   "Steel Commanders": "3QRkn_lxpec",
   "Christmas Truce": "goXDAFtkJLw",
   "The Attack of the Dead Men": "-AFdwoyNT24",
-  "Fields of Verdun": "yJDBmP9Mexk"
+  "Fields of Verdun": "yJDBmP9Mexk",
+  "Shiroyama": "Ylyqoxh-cXk"
 };
 
 let player;
-
-
-
-
-
-
-// Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
-verdunAppears();
 
 // create Date object for current location
 function livetime() {
