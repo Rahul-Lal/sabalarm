@@ -28,10 +28,14 @@ const songSelection = document.getElementById("song-selection");
 // Element for "Christmas Truce"
 const xmasOption = document.getElementById("xmasTruceOption");
 xmasOption.style.display = "none";
+// 25 December - Christmas Truce (On Christmas Day) - https://www.iwm.org.uk/history/the-real-story-of-the-christmas-truce
+specialDaysAppear(11, 25, xmasOption, "Christmas Truce");
 
 // Element for "The Attack of the Dead Men"
 const deadMenOption = document.getElementById("deadMenOption");
 deadMenOption.style.display = "none";
+// 9th August - The Attack of the Dead Men - https://www.warhistoryonline.com/war-articles/dead.html
+specialDaysAppear(7, 9, deadMenOption, "The Attack of the Dead Men");
 
 // Element for "Fields of Verdun"
 const verdunOption = document.getElementById("verdunOption");
@@ -40,10 +44,19 @@ verdunOption.style.display = "none";
 // Element for "Primo Victoria"
 const primoVictoriaOption = document.getElementById("primoVictoriaOption");
 primoVictoriaOption.style.display = "none";
+// 6 June - Primo Victoria (D-Day/Normandy Landings) - https://www.bbc.com/news/world-48513108
+specialDaysAppear(5, 6, primoVictoriaOption, "Primo Victoria");
 
 // Element for "To Hell and Back"
 const hellAndBackOption = document.getElementById("hellAndBackOption");
 hellAndBackOption.style.display = "none";
+// 20 June - To Hell and Back (Audie Murphy's Birthday) - https://www.audiemurphy.com/
+specialDaysAppear(5, 20, hellAndBackOption, "To Hell and Back");
+
+const whiteDeathOption = document.getElementById("whiteDeathOption");
+whiteDeathOption.style.display = "none";
+// 17 December - White Death (Simo Häyhä's Birthday) - https://warfarehistorynetwork.com/article/finnish-sniper-simo-hayha/
+specialDaysAppear(11, 17, whiteDeathOption, "White Death");
 
 // { Songs name } : { Youtube ID }
 const songs = {
@@ -65,20 +78,10 @@ const songs = {
 
 let player;
 
-// 9th August - The Attack of the Dead Men - https://www.warhistoryonline.com/war-articles/dead.html
-specialDaysAppear(7, 9, deadMenOption, "The Attack of the Dead Men");
 
-// 25 December - Christmas Truce (On Christmas Day) - https://www.iwm.org.uk/history/the-real-story-of-the-christmas-truce
-specialDaysAppear(11, 25, xmasOption, "Christmas Truce");
 
-// 6 June - Primo Victoria (D-Day/Normandy Landings) - https://www.bbc.com/news/world-48513108
-specialDaysAppear(5, 6, primoVictoriaOption, "Primo Victoria");
 
-// 20 June - To Hell and Back (Audie Murphy's Birthday) - https://www.audiemurphy.com/
-specialDaysAppear(5, 20, hellAndBackOption, "To Hell and Back");
 
-// 17 December - White Death (Simo Häyhä's Birthday) - https://warfarehistorynetwork.com/article/finnish-sniper-simo-hayha/
-specialDaysAppear(11, 17, whiteDeathOption, "White Death");
 
 // Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
 verdunAppears();
