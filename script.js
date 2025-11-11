@@ -25,45 +25,45 @@ const phoneScreenSize = window.matchMedia("(max-width: 600px)");
 
 const songSelection = document.getElementById("song-selection");
 
-// Element for "Christmas Truce"
+// 25 December - Christmas Truce (On Christmas Day) - https://www.iwm.org.uk/history/the-real-story-of-the-christmas-truce
 const xmasOption = document.getElementById("xmasTruceOption");
 xmasOption.style.display = "none";
-// 25 December - Christmas Truce (On Christmas Day) - https://www.iwm.org.uk/history/the-real-story-of-the-christmas-truce
 specialDaysAppear(11, 25, xmasOption, "Christmas Truce");
 
-// Element for "The Attack of the Dead Men"
+// 9th August - The Attack of the Dead Men - https://www.warhistoryonline.com/war-articles/dead.html
 const deadMenOption = document.getElementById("deadMenOption");
 deadMenOption.style.display = "none";
-// 9th August - The Attack of the Dead Men - https://www.warhistoryonline.com/war-articles/dead.html
 specialDaysAppear(7, 9, deadMenOption, "The Attack of the Dead Men");
 
-// Element for "Fields of Verdun"
+// Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
 const verdunOption = document.getElementById("verdunOption");
 verdunOption.style.display = "none";
-// Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
 verdunAppears();
 
-// Element for "Primo Victoria"
+// 6 June - Primo Victoria (D-Day/Normandy Landings) - https://www.bbc.com/news/world-48513108
 const primoVictoriaOption = document.getElementById("primoVictoriaOption");
 primoVictoriaOption.style.display = "none";
-// 6 June - Primo Victoria (D-Day/Normandy Landings) - https://www.bbc.com/news/world-48513108
 specialDaysAppear(5, 6, primoVictoriaOption, "Primo Victoria");
 
-// Element for "To Hell and Back"
+// 20 June - To Hell and Back (Audie Murphy's Birthday) - https://www.audiemurphy.com/
 const hellAndBackOption = document.getElementById("hellAndBackOption");
 hellAndBackOption.style.display = "none";
-// 20 June - To Hell and Back (Audie Murphy's Birthday) - https://www.audiemurphy.com/
 specialDaysAppear(5, 20, hellAndBackOption, "To Hell and Back");
 
+// 17 December - White Death (Simo Häyhä's Birthday) - https://warfarehistorynetwork.com/article/finnish-sniper-simo-hayha/
 const whiteDeathOption = document.getElementById("whiteDeathOption");
 whiteDeathOption.style.display = "none";
-// 17 December - White Death (Simo Häyhä's Birthday) - https://warfarehistorynetwork.com/article/finnish-sniper-simo-hayha/
 specialDaysAppear(11, 17, whiteDeathOption, "White Death");
 
+// 24 September - Shiroyama (Satsuma Rebellion) - https://www.britannica.com/event/Satsuma-Rebellion
 const shiroyamaOption = document.getElementById("shiroyamaOption");
 shiroyamaOption.style.display = "none";
-// 24 September - Shiroyama (Satsuma Rebellion) - https://www.britannica.com/event/Satsuma-Rebellion
 specialDaysAppear(8, 24, shiroyamaOption, "Shiroyama");
+
+// 5th May - The Unkillable Solder - (Sir Adrian Carton de Wiart's Birthday) - https://www.bbc.com/news/magazine-30685433
+const unKillableOption = document.getElementById("unKillableOption");
+unKillableOption.style.display = "none";
+specialDaysAppear(4, 5, unKillableOption, "The Unkillable Soldier");
 
 
 
@@ -83,7 +83,8 @@ const songs = {
   "Christmas Truce": "goXDAFtkJLw",
   "The Attack of the Dead Men": "-AFdwoyNT24",
   "Fields of Verdun": "yJDBmP9Mexk",
-  "Shiroyama": "Ylyqoxh-cXk"
+  "Shiroyama": "Ylyqoxh-cXk",
+  "The Unkillable Soldier": "usrFCZpRwGo"
 };
 
 let player;
