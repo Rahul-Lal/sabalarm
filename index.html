@@ -24,15 +24,8 @@
     <br>
     <label for="song-selection">Select Song:</label>
     <select id="song-selection" onchange="thumbnailChange()">
-        <option id="xmasTruceOption" disabled value="Christmas Truce">Christmas Truce</option>
-        <option id="deadMenOption" disabled value="The Attack of the Dead Men">The Attack of the Dead Men</option>
-        <option id="primoVictoriaOption" disabled value="Primo Victoria">Primo Victoria</option>
-        <option id="hellAndBackOption" value="To Hell and Back">To Hell and Back</option>
-        <option id="whiteDeathOption" value="White Death">White Death</option>
-        <option id="shiroyamaOption" value="Shiroyama">Shiroyama</option>
-        <option id="unKillableOption" value="The Unkillable Soldier">The Unkillable Soldier</option>
         <option value="Ghost Division">Ghost Division</option>
-        <option id="verdunOption" value="Fields of Verdun">Fields of Verdun</option>
+        <option id="verdunOption" disabled value="Fields of Verdun">Fields of Verdun</option>
         <option value="Metal Machine">Metal Machine</option>
         <option value="Templars">Templars</option>
         <option value="The Royal Guard">The Royal Guard</option>
@@ -40,6 +33,13 @@
         <option value="Bismarck">Bismarck</option>
         <option value="Soldiers of Heaven">Soldiers of Heaven</option>
         <option value="Steel Commanders">Steel Commanders</option>
+        <option id="xmasTruceOption" value="Christmas Truce">Christmas Truce</option>
+        <option id="deadMenOption" value="The Attack of the Dead Men">The Attack of the Dead Men</option>
+        <option id="primoVictoriaOption" value="Primo Victoria">Primo Victoria</option>
+        <option id="hellAndBackOption" value="To Hell and Back">To Hell and Back</option>
+        <option id="whiteDeathOption" value="White Death">White Death</option>
+        <option id="shiroyamaOption" value="Shiroyama">Shiroyama</option>
+        <option id="unKillableOption" value="The Unkillable Soldier">The Unkillable Soldier</option>
     </select>
 
     <br>
@@ -55,7 +55,7 @@
     <br>
 
     <!-- Placeholder image -->
-    <img id="alarm-placeholder" src="https://i.ytimg.com/vi/ICfzQVh3lvs/hq720.jpg" alt="Ghost Division Thumbnail" width="560" height="315" />
+    <img id="alarm-placeholder" width="560" height="315" />
 
     <!-- Hidden YouTube player -->
     <div id="player" style="display: none;"></div>

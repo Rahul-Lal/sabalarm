@@ -15,75 +15,68 @@ let selectedDateTime = document.getElementById("date-time");
 const inputDateTime = document.getElementById("date-time");
 let btnsetalarm = document.getElementById("alarmset");
 let btnalarmcancel = document.getElementById("alarmcancel");
-let body = document.getElementById("body");
-let alarmPlaceholder = document.getElementById("alarm-placeholder");
 btnalarmcancel.disabled = true;
+let body = document.getElementById("body");
 const phoneScreenSize = window.matchMedia("(max-width: 600px)");
 
+let alarmPlaceholder = document.getElementById("alarm-placeholder");
+alarmPlaceholder.src = "https://i.ytimg.com/vi/ICfzQVh3lvs/hq720.jpg";
+alarmPlaceholder.alt = "Ghost Division Thumbnail";
+
 const songSelection = document.getElementById("song-selection");
+
+// { Songs name } : { Youtube ID }
+const songs = {
+  "Ghost Division":    { id: "ICfzQVh3lvs", locked: false, thumb: "ICfzQVh3lvs/hq720.jpg" },
+  "Primo Victoria": { id: "KVxTJ9Xb9Ec", locked: false, thumb: "KVxTJ9Xb9Ec/hq720.jpg" },
+  "Templars": { id: "YL_APKnLtJo", locked: false, thumb: "YL_APKnLtJo/hq720.jpg" },
+  "To Hell and Back": { id: "FBz7MX2bLcM", locked: true, thumb: "FBz7MX2bLcM/hq720.jpg" },
+  "Metal Machine": { id: "0l-cJ-206iQ", locked: false, thumb: "0l-cJ-206iQ/hq720.jpg" },
+  "White Death": { id: "JRIfWazqIQ8", locked: true, thumb: "JRIfWazqIQ8/hq720.jpg" },
+  "The Royal Guard": { id: "VXM3P8Rmy-U", locked: false, thumb: "VXM3P8Rmy-U/hq720.jpg" },
+  "Dreadnought": { id: "RJK0jhymE5A", locked: false, thumb: "RJK0jhymE5A/hq720.jpg" },
+  "Bismarck": { id: "EWKX3wass9s", locked: false, thumb: "EWKX3wass9s/hq720.jpg" },
+  "Soldiers of Heaven": { id: "7c_JYtOVOpE", locked: false, thumb: "7c_JYtOVOpE/hq720.jpg" },
+  "Steel Commanders": { id: "3QRkn_lxpec", locked: false, thumb: "3QRkn_lxpec/hq720.jpg" },
+  "Christmas Truce": { id: "goXDAFtkJLw", locked: true, thumb: "goXDAFtkJLw/hq720.jpg" },
+  "The Attack of the Dead Men": { id: "-AFdwoyNT24", locked: true, thumb: "-AFdwoyNT24/hq720.jpg" },
+  "Fields of Verdun": { id: "yJDBmP9Mexk", locked: false, thumb: "yJDBmP9Mexk/hq720.jpg" },
+  "Shiroyama": { id: "Ylyqoxh-cXk", locked: true, thumb: "Ylyqoxh-cXk/hq720.jpg" },
+  "The Unkillable Soldier": { id: "usrFCZpRwGo", locked: true, thumb: "usrFCZpRwGo/hq720.jpg" }
+};
 
 
 // 25 December - Christmas Truce (On Christmas Day) - https://www.iwm.org.uk/history/the-real-story-of-the-christmas-truce
 const xmasOption = document.getElementById("xmasTruceOption");
-xmasOption.style.display = "none";
 specialDaysAppear(11, 25, xmasOption, "Christmas Truce");
 
 // 9th August - The Attack of the Dead Men - https://www.warhistoryonline.com/war-articles/dead.html
 const deadMenOption = document.getElementById("deadMenOption");
-deadMenOption.style.display = "none";
 specialDaysAppear(7, 9, deadMenOption, "The Attack of the Dead Men");
 
 // Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
 const verdunOption = document.getElementById("verdunOption");
-verdunOption.style.display = "none";
 verdunAppears();
 
 // 6 June - Primo Victoria (D-Day/Normandy Landings) - https://www.bbc.com/news/world-48513108
 const primoVictoriaOption = document.getElementById("primoVictoriaOption");
-primoVictoriaOption.style.display = "none";
 specialDaysAppear(5, 6, primoVictoriaOption, "Primo Victoria");
 
 // 20 June - To Hell and Back (Audie Murphy's Birthday) - https://www.audiemurphy.com/
 const hellAndBackOption = document.getElementById("hellAndBackOption");
-hellAndBackOption.style.display = "none";
 specialDaysAppear(5, 20, hellAndBackOption, "To Hell and Back");
 
 // 17 December - White Death (Simo Häyhä's Birthday) - https://warfarehistorynetwork.com/article/finnish-sniper-simo-hayha/
 const whiteDeathOption = document.getElementById("whiteDeathOption");
-whiteDeathOption.style.display = "none";
 specialDaysAppear(11, 17, whiteDeathOption, "White Death");
 
 // 24 September - Shiroyama (Satsuma Rebellion) - https://www.britannica.com/event/Satsuma-Rebellion
 const shiroyamaOption = document.getElementById("shiroyamaOption");
-shiroyamaOption.style.display = "none";
 specialDaysAppear(8, 24, shiroyamaOption, "Shiroyama");
 
 // 5th May - The Unkillable Solder - (Sir Adrian Carton de Wiart's Birthday) - https://www.bbc.com/news/magazine-30685433
 const unKillableOption = document.getElementById("unKillableOption");
-unKillableOption.style.display = "none";
 specialDaysAppear(4, 5, unKillableOption, "The Unkillable Soldier");
-
-
-
-// { Songs name } : { Youtube ID }
-const songs = {
-  "Ghost Division": "ICfzQVh3lvs",
-  "Primo Victoria": "KVxTJ9Xb9Ec",
-  "Templars": "YL_APKnLtJo",
-  "To Hell and Back": "FBz7MX2bLcM",
-  "Metal Machine": "0l-cJ-206iQ",
-  "White Death": "JRIfWazqIQ8",
-  "The Royal Guard": "VXM3P8Rmy-U",
-  "Dreadnought": "RJK0jhymE5A",
-  "Bismarck": "EWKX3wass9s",
-  "Soldiers of Heaven": "7c_JYtOVOpE",
-  "Steel Commanders": "3QRkn_lxpec",
-  "Christmas Truce": "goXDAFtkJLw",
-  "The Attack of the Dead Men": "-AFdwoyNT24",
-  "Fields of Verdun": "yJDBmP9Mexk",
-  "Shiroyama": "Ylyqoxh-cXk",
-  "The Unkillable Soldier": "usrFCZpRwGo"
-};
 
 let player;
 
@@ -237,13 +230,12 @@ function alarmset() {
 function thumbnailChange() {
   for (let key in songs) {
     if (songSelection.value === key) {
-      console.log(`Selected song: ${key}, Video ID: ${songs[key]}`);
-      alarmPlaceholder.src = `https://i.ytimg.com/vi/${songs[key]}/hq720.jpg`;
+      console.log(`Selected song: ${key}, Video ID: ${songs[key].id}`);
+      alarmPlaceholder.src = `https://i.ytimg.com/vi/${songs[key].thumb}`;
       alarmPlaceholder.alt = `${key} Thumbnail`;
       alarmPlaceholder.style.transition = "src 0.75s ease-in-out";
     }
   }
-
 }
 
 function alarmcancel() {
