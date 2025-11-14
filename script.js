@@ -55,7 +55,12 @@ const songs = {
     title: "Fields of Verdun",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/fields-of-verdun",
     thumbnailID: "yJDBmP9Mexk"
-  }
+  },
+  "Templars": {
+    title:"Templars",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/templars",
+    thumbnailID: "YL_APKnLtJo"
+  },
 };
 
 
