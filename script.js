@@ -1,4 +1,3 @@
-//
 setInterval(livetime, 1000);
 
 let date = new Date().toLocaleString("en-NZ");
@@ -15,70 +14,89 @@ let selectedDateTime = document.getElementById("date-time");
 const inputDateTime = document.getElementById("date-time");
 let btnsetalarm = document.getElementById("alarmset");
 let btnalarmcancel = document.getElementById("alarmcancel");
-btnalarmcancel.disabled = true;
 let body = document.getElementById("body");
-const phoneScreenSize = window.matchMedia("(max-width: 600px)");
-
 let alarmPlaceholder = document.getElementById("alarm-placeholder");
-alarmPlaceholder.src = "https://i.ytimg.com/vi/ICfzQVh3lvs/hq720.jpg";
-alarmPlaceholder.alt = "Ghost Division Thumbnail";
+btnalarmcancel.disabled = true;
+// let impHour = document.getElementById("hour");
+// let impMin = document.getElementById("min");
+
+const phoneScreenSize = window.matchMedia("(max-width: 600px)");
 
 const songSelection = document.getElementById("song-selection");
 
+// Element for "Christmas Truce"
+const xmasOption = document.getElementById("xmasTruceOption");
+xmasOption.style.display = "none";
+
+// Element for "The Attack of the Dead Men"
+const deadMenOption = document.getElementById("deadMenOption");
+deadMenOption.style.display = "none";
+
+// Element for "Fields of Verdun"
+const verdunOption = document.getElementById("verdunOption");
+verdunOption.style.display = "none";
+
+// Element for "Primo Victoria"
+const primoVictoriaOption = document.getElementById("primoVictoriaOption");
+primoVictoriaOption.style.display = "none";
+
+// Element for "To Hell and Back"
+const hellAndBackOption = document.getElementById("hellAndBackOption");
+hellAndBackOption.style.display = "none";
+
 // { Songs name } : { Youtube ID }
 const songs = {
-  "Ghost Division":    { id: "ICfzQVh3lvs", locked: false, thumb: "ICfzQVh3lvs/hq720.jpg" },
-  "Primo Victoria": { id: "KVxTJ9Xb9Ec", locked: false, thumb: "KVxTJ9Xb9Ec/hq720.jpg" },
-  "Templars": { id: "YL_APKnLtJo", locked: false, thumb: "YL_APKnLtJo/hq720.jpg" },
-  "To Hell and Back": { id: "FBz7MX2bLcM", locked: true, thumb: "FBz7MX2bLcM/hq720.jpg" },
-  "Metal Machine": { id: "0l-cJ-206iQ", locked: false, thumb: "0l-cJ-206iQ/hq720.jpg" },
-  "White Death": { id: "JRIfWazqIQ8", locked: true, thumb: "JRIfWazqIQ8/hq720.jpg" },
-  "The Royal Guard": { id: "VXM3P8Rmy-U", locked: false, thumb: "VXM3P8Rmy-U/hq720.jpg" },
-  "Dreadnought": { id: "RJK0jhymE5A", locked: false, thumb: "RJK0jhymE5A/hq720.jpg" },
-  "Bismarck": { id: "EWKX3wass9s", locked: false, thumb: "EWKX3wass9s/hq720.jpg" },
-  "Soldiers of Heaven": { id: "7c_JYtOVOpE", locked: false, thumb: "7c_JYtOVOpE/hq720.jpg" },
-  "Steel Commanders": { id: "3QRkn_lxpec", locked: false, thumb: "3QRkn_lxpec/hq720.jpg" },
-  "Christmas Truce": { id: "goXDAFtkJLw", locked: true, thumb: "goXDAFtkJLw/hq720.jpg" },
-  "The Attack of the Dead Men": { id: "-AFdwoyNT24", locked: true, thumb: "-AFdwoyNT24/hq720.jpg" },
-  "Fields of Verdun": { id: "yJDBmP9Mexk", locked: false, thumb: "yJDBmP9Mexk/hq720.jpg" },
-  "Shiroyama": { id: "Ylyqoxh-cXk", locked: true, thumb: "Ylyqoxh-cXk/hq720.jpg" },
-  "The Unkillable Soldier": { id: "usrFCZpRwGo", locked: true, thumb: "usrFCZpRwGo/hq720.jpg" }
+  "Ghost Division": {
+    title: "Ghost Division",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/ghost-division",
+    thumbnailID: "ICfzQVh3lvs" // keep your existing YouTube thumb ID if you like
+  },
+  "Fields of Verdun": {
+    title: "Fields of Verdun",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/fields-of-verdun",
+    thumbnailID: "yJDBmP9Mexk"
+  }
 };
 
 
-// 25 December - Christmas Truce (On Christmas Day) - https://www.iwm.org.uk/history/the-real-story-of-the-christmas-truce
-const xmasOption = document.getElementById("xmasTruceOption");
-specialDaysAppear(11, 25, xmasOption, "Christmas Truce");
+/*
+  const songs = {
+    "Ghost Division": "ICfzQVh3lvs",
+    "Primo Victoria": "KVxTJ9Xb9Ec",
+    "Templars": "YL_APKnLtJo",
+    "To Hell and Back": "FBz7MX2bLcM",
+    "Metal Machine": "0l-cJ-206iQ",
+    "White Death": "JRIfWazqIQ8",
+    "The Royal Guard": "VXM3P8Rmy-U",
+    "Dreadnought": "RJK0jhymE5A",
+    "Bismarck": "EWKX3wass9s",
+    "Soldiers of Heaven": "7c_JYtOVOpE",
+    "Steel Commanders": "3QRkn_lxpec",
+    "Christmas Truce": "goXDAFtkJLw",
+    "The Attack of the Dead Men": "-AFdwoyNT24",
+    "Fields of Verdun": "yJDBmP9Mexk"
+  };
+*/
+
+let player;
 
 // 9th August - The Attack of the Dead Men - https://www.warhistoryonline.com/war-articles/dead.html
-const deadMenOption = document.getElementById("deadMenOption");
 specialDaysAppear(7, 9, deadMenOption, "The Attack of the Dead Men");
 
-// Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
-const verdunOption = document.getElementById("verdunOption");
-verdunAppears();
+// 25 December - Christmas Truce (On Christmas Day) - https://www.iwm.org.uk/history/the-real-story-of-the-christmas-truce
+specialDaysAppear(11, 25, xmasOption, "Christmas Truce");
 
 // 6 June - Primo Victoria (D-Day/Normandy Landings) - https://www.bbc.com/news/world-48513108
-const primoVictoriaOption = document.getElementById("primoVictoriaOption");
 specialDaysAppear(5, 6, primoVictoriaOption, "Primo Victoria");
 
 // 20 June - To Hell and Back (Audie Murphy's Birthday) - https://www.audiemurphy.com/
-const hellAndBackOption = document.getElementById("hellAndBackOption");
 specialDaysAppear(5, 20, hellAndBackOption, "To Hell and Back");
 
 // 17 December - White Death (Simo Häyhä's Birthday) - https://warfarehistorynetwork.com/article/finnish-sniper-simo-hayha/
-const whiteDeathOption = document.getElementById("whiteDeathOption");
 specialDaysAppear(11, 17, whiteDeathOption, "White Death");
 
-// 24 September - Shiroyama (Satsuma Rebellion) - https://www.britannica.com/event/Satsuma-Rebellion
-const shiroyamaOption = document.getElementById("shiroyamaOption");
-specialDaysAppear(8, 24, shiroyamaOption, "Shiroyama");
-
-// 5th May - The Unkillable Solder - (Sir Adrian Carton de Wiart's Birthday) - https://www.bbc.com/news/magazine-30685433
-const unKillableOption = document.getElementById("unKillableOption");
-specialDaysAppear(4, 5, unKillableOption, "The Unkillable Soldier");
-
-let player;
+// Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
+verdunAppears();
 
 // create Date object for current location
 function livetime() {
@@ -87,95 +105,83 @@ function livetime() {
   h2time = usedtime;
   realtime.innerHTML = h2time;
 }
-// This function gets called by the YouTube IFrame API
-function createPlayer(videoId) {
-  player = new YT.Player('player', {
-    height: '315',
-    width: '560',
-    videoId: videoId,
-    playerVars: {
-      autoplay: 1,
-      loop: 1,
-      controls: 0,
-      playlist: videoId
-    }
-  });
-}
 
+function playSoundcloudAlarm() {
+  // --- your existing UI state changes ---
 
-function playYoutubeAlarm() {
-  // Hide placeholder
+  const playerContainer = document.getElementById("player");
+  const song = songSelection.value;
+  let meta = songs[song];
+
+  if (!meta || !meta.soundcloudUrl) {
+    console.warn("No SoundCloud URL for song, falling back to Ghost Division");
+    meta = songs["Ghost Division"];
+  }
+
+  const embedUrl =
+    "https://w.soundcloud.com/player/?url=" +
+    encodeURIComponent(meta.soundcloudUrl) +
+    "&auto_play=true&loop=true&show_teaser=false";
+
+  // Make sure container is visible
+  playerContainer.style.display = "block";
+  playerContainer.style.opacity = "1";
+  playerContainer.style.visibility = "visible";
+  playerContainer.style.zIndex = "9999";
+
+  // Hide placeholder image under the player
   alarmPlaceholder.style.display = "none";
 
-  // For viewing app via mobile
+  // Inject SoundCloud iframe
+  playerContainer.innerHTML = `
+    <iframe
+      width="66%"
+      height="166"
+      scrolling="no"
+      frameborder="no"
+      allow="autoplay"
+      src="${embedUrl}">
+    </iframe>
+  `;
+
+  // Your background / opacity changes can live here as before:
   if (phoneScreenSize.matches) {
     body.style.backgroundImage = "url('./media/setBackground.png')";
-  }
-  else {
+  } else {
     body.style.backgroundImage = "url('./media/SabatonColor.jpg')";
   }
   body.style.transition = "background-image 0.75s ease-in-out";
 
+  // Re-enable all the visible bits (same as you had)
   btnsetalarm.style.color = "green";
   btnsetalarm.style.borderColor = "green";
   btnalarmcancel.style.color = "red";
   btnalarmcancel.style.borderColor = "red";
 
-  alarmPlaceholder.style.opacity = "1.0";
-  selectedDateTime.style.opacity = "1.0";
-  songSelection.style.opacity = "1.0";
-  realtime.style.opacity = "1.0";
-  Array.from(document.getElementsByTagName("h3")).forEach(h3 => h3.style.opacity = "1.0");
-  Array.from(document.getElementsByTagName("h4")).forEach(h4 => h4.style.opacity = "1.0");
+  selectedDateTime.style.opacity = "1";
+  songSelection.style.opacity = "1";
+  realtime.style.opacity = "1";
 
-  // Show YouTube video
-  document.getElementById('player').style.display = 'block';
-  let videoId;
-
-  for (const [song, id] of Object.entries(songs)) {
-    if (songSelection.value === song) {
-      videoId = id;
-      break;
-    }
-  }
-
-  if (player) {
-    player.loadVideoById(videoId);
-  } else {
-    createPlayer(videoId);
-  }
-
-  player.playVideo();
+  Array.from(document.getElementsByTagName("h3")).forEach(h => h.style.opacity = "1");
+  Array.from(document.getElementsByTagName("h4")).forEach(h => h.style.opacity = "1");
 }
+
 
 function stopAlarm() {
-  if (player) {
-    player.stopVideo();
-    player.setSize(0, 0); // hide it again
-  }
+  const playerContainer = document.getElementById("player");
 
+  // Remove the SoundCloud iframe
+  playerContainer.innerHTML = "";
+  playerContainer.style.display = "none";
+
+  // Restore background and placeholder
   body.style.backgroundImage = "url('./media/SabatonGrey.jpg')";
   body.style.transition = "background-image 0.75s ease-in-out";
-  alarmPlaceholder.style.opacity = "1.0";
 
-  inputDateTime.disabled = false;
-
-  // Hide YouTube video
-
-  document.getElementById('player').style.display = 'none';
-  alarmPlaceholder.style.display = 'block';
+  alarmPlaceholder.style.display = "block";
+  alarmPlaceholder.style.opacity = "1";
 }
 
-function timeset(t) {
-  /*
-  impHour = h;
-  impMin = m;
-  console.log("The selected time is " + impHour + ":" + impMin);
-  */
-
-  selectedDateTime.value = t;
-  console.log("The selected time is " + selectedDateTime.value);
-}
 
 function alarmset() {
   btnsetalarm.disabled = true;
@@ -215,7 +221,7 @@ function alarmset() {
     if (alarmCountdown > rightFrigginNow) {
       const timesup = alarmCountdown.getTime() - rightFrigginNow.getTime();
 
-      timeout = setTimeout(() => playYoutubeAlarm(), timesup);
+      timeout = setTimeout(() => playSoundcloudAlarm(), timesup);
 
       console.log(`Alarm Set on ${alarmCountdown.toDateString()}, at ${alarmCountdown.toLocaleTimeString()}`);
       alert(`Alarm Set on ${alarmCountdown.toDateString()}, at ${alarmCountdown.toLocaleTimeString()}`);
@@ -230,9 +236,9 @@ function alarmset() {
 function thumbnailChange() {
   for (let key in songs) {
     if (songSelection.value === key) {
-      console.log(`Selected song: ${key}, Video ID: ${songs[key].id}`);
-      alarmPlaceholder.src = `https://i.ytimg.com/vi/${songs[key].thumb}`;
-      alarmPlaceholder.alt = `${key} Thumbnail`;
+      console.log(`Selected song: ${songs[key].title}, Video ID: ${songs[key].thumbnailID}`);
+      alarmPlaceholder.src = `https://i.ytimg.com/vi/${songs[key].thumbnailID}/hq720.jpg`;
+      alarmPlaceholder.alt = `${songs[key].title} Thumbnail`;
       alarmPlaceholder.style.transition = "src 0.75s ease-in-out";
     }
   }
@@ -277,6 +283,7 @@ function alarmcancel() {
   }
 
   console.log("Cancelled!");
+
 }
 
 
