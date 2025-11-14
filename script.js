@@ -45,25 +45,6 @@ const hellAndBackOption = document.getElementById("hellAndBackOption");
 hellAndBackOption.style.display = "none";
 
 // { Songs name } : { Youtube ID }
-const songs = {
-  "Ghost Division": {
-    title: "Ghost Division",
-    soundcloudUrl: "https://soundcloud.com/sabatonofficial/ghost-division",
-    thumbnailID: "ICfzQVh3lvs" // keep your existing YouTube thumb ID if you like
-  },
-  "Fields of Verdun": {
-    title: "Fields of Verdun",
-    soundcloudUrl: "https://soundcloud.com/sabatonofficial/fields-of-verdun",
-    thumbnailID: "yJDBmP9Mexk"
-  },
-  "Templars": {
-    title:"Templars",
-    soundcloudUrl: "https://soundcloud.com/sabatonofficial/templars",
-    thumbnailID: "YL_APKnLtJo"
-  },
-};
-
-
 /*
   const songs = {
     "Ghost Division": "ICfzQVh3lvs",
@@ -82,6 +63,75 @@ const songs = {
     "Fields of Verdun": "yJDBmP9Mexk"
   };
 */
+
+
+const songs = {
+  "Ghost Division": {
+    title: "Ghost Division",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/ghost-division",
+    thumbnailID: "ICfzQVh3lvs"
+  },
+  "Fields of Verdun": {
+    title: "Fields of Verdun",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/fields-of-verdun",
+    thumbnailID: "yJDBmP9Mexk"
+  },
+  "Templars": {
+    title:"Templars",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/templars",
+    thumbnailID: "YL_APKnLtJo"
+  },
+  "To Hell and Back": {
+    title:"To Hell and Back",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/to-hell-and-back",
+    thumbnailID: "FBz7MX2bLcM"
+  },
+  "Metal Machine": {
+    title:"Metal Machine",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/metal-machine",
+    thumbnailID: "0l-cJ-206iQ"
+  },
+  "White Death":{
+    title:"White Death",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/white-death",
+    thumbnailID: "JRIfWazqIQ8"
+  },
+  "The Royal Guard": {
+    title:"The Royal Guard",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/the-royal-guard",
+    thumbnailID: "VXM3P8Rmy-U"
+  },
+  "Dreadnought":{
+    title:"Dreadnought",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/dreadnought",
+    thumbnailID: "RJK0jhymE5A"
+  },
+  "Bismarck":{
+    title:"Bismarck",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/bismarck",
+    thumbnailID: "EWKX3wass9s"
+  },
+  "Soldiers of Heaven":{
+    title:"Soldiers of Heaven",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/soldier-of-heaven",
+    thumbnailID: "7c_JYtOVOpE"
+  },
+  "Steel Commanders":{
+    title:"Steel Commanders",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/steel-commanders",
+    thumbnailID: "3QRkn_lxpec"
+  },
+  "Christmas Truce":{
+    title:"Christmas Truce",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/christmas-truce",
+    thumbnailID: "goXDAFtkJLw"
+  },
+  "The Attack of the Dead Men":{
+    title:"The Attack of the Dead Men",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/the-attack-of-the-dead-men",
+    thumbnailID: "-AFdwoyNT24"
+  }
+};
 
 let player;
 
