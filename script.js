@@ -130,6 +130,16 @@ const songs = {
     title:"The Attack of the Dead Men",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/the-attack-of-the-dead-men",
     thumbnailID: "-AFdwoyNT24"
+  },
+  "":{
+    title:"",
+    soundcloudUrl: "",
+    thumbnailID: ""
+  },
+  "I, Emperor":{
+    title:"I, Emperor",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/i-emperor",
+    thumbnailID: "ZAaAT6UmJAU"
   }
 };
 
@@ -149,6 +159,8 @@ specialDaysAppear(5, 20, hellAndBackOption, "To Hell and Back");
 
 // 17 December - White Death (Simo Häyhä's Birthday) - https://warfarehistorynetwork.com/article/finnish-sniper-simo-hayha/
 specialDaysAppear(11, 17, whiteDeathOption, "White Death");
+
+
 
 // Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
 verdunAppears();
