@@ -44,25 +44,9 @@ primoVictoriaOption.style.display = "none";
 const hellAndBackOption = document.getElementById("hellAndBackOption");
 hellAndBackOption.style.display = "none";
 
-// { Songs name } : { Youtube ID }
-/*
-  const songs = {
-    "Ghost Division": "ICfzQVh3lvs",
-    "Primo Victoria": "KVxTJ9Xb9Ec",
-    "Templars": "YL_APKnLtJo",
-    "To Hell and Back": "FBz7MX2bLcM",
-    "Metal Machine": "0l-cJ-206iQ",
-    "White Death": "JRIfWazqIQ8",
-    "The Royal Guard": "VXM3P8Rmy-U",
-    "Dreadnought": "RJK0jhymE5A",
-    "Bismarck": "EWKX3wass9s",
-    "Soldiers of Heaven": "7c_JYtOVOpE",
-    "Steel Commanders": "3QRkn_lxpec",
-    "Christmas Truce": "goXDAFtkJLw",
-    "The Attack of the Dead Men": "-AFdwoyNT24",
-    "Fields of Verdun": "yJDBmP9Mexk"
-  };
-*/
+// Element for "I, Emperor"
+const iEmperorOption = document.getElementById("iEmperorOption");
+iEmperorOption.style.display = "none";
 
 
 const songs = {
@@ -131,10 +115,10 @@ const songs = {
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/the-attack-of-the-dead-men",
     thumbnailID: "-AFdwoyNT24"
   },
-  "":{
-    title:"",
-    soundcloudUrl: "",
-    thumbnailID: ""
+  "Primo Victoria":{
+    title:"Primo Victoria",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/primo-victoria",
+    thumbnailID: "KVxTJ9Xb9Ec"
   },
   "I, Emperor":{
     title:"I, Emperor",
@@ -160,7 +144,8 @@ specialDaysAppear(5, 20, hellAndBackOption, "To Hell and Back");
 // 17 December - White Death (Simo Häyhä's Birthday) - https://warfarehistorynetwork.com/article/finnish-sniper-simo-hayha/
 specialDaysAppear(11, 17, whiteDeathOption, "White Death");
 
-
+// 15 August - I, Emperor (Napoleon Bonaparte's Birthday) - https://www.history.com/articles/napoleon
+specialDaysAppear(7, 15, iEmperorOption, "I, Emperor");
 
 // Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
 verdunAppears();
