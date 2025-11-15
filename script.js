@@ -52,10 +52,6 @@ hellAndBackOption.style.display = "none";
 const iEmperorOption = document.getElementById("iEmperorOption");
 iEmperorOption.style.display = "none";
 
-// Element for "I, Emperor"
-const iEmperorOption = document.getElementById("iEmperorOption");
-iEmperorOption.style.display = "none";
-
 
 const songs = {
   "Ghost Division": {
@@ -137,6 +133,11 @@ const songs = {
     title:"Shadows",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/shadows",
     thumbnailID: "IxPn5FvOBtw"
+  },
+  "The Duelist":{
+    title:"The Duelist",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/the-duelist",
+    thumbnailID: "6KUOX_VFVn0"
   }
 };
 
