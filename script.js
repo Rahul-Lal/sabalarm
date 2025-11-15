@@ -174,9 +174,7 @@ function playSoundcloudAlarm() {
   }
 
   const embedUrl =
-    "https://w.soundcloud.com/player/?url=" +
-    encodeURIComponent(meta.soundcloudUrl) +
-    "&auto_play=true&loop=true&show_teaser=false";
+    `https://w.soundcloud.com/player/?url=${encodeURIComponent(meta.soundcloudUrl)}&auto_play=true&loop=true&show_teaser=false`;
 
   // Make sure container is visible
   playerContainer.style.display = "block";
@@ -190,14 +188,14 @@ function playSoundcloudAlarm() {
   // Inject SoundCloud iframe
   playerContainer.innerHTML = `
     <iframe
-      width="66%"
-      height="166"
+      width="560"
+      height="315"
       scrolling="no"
       frameborder="no"
       allow="autoplay"
+      autoplay="true"
       src="${embedUrl}">
-    </iframe>
-  `;
+    </iframe>`;
 
   // Your background / opacity changes can live here as before:
   if (phoneScreenSize.matches) {
