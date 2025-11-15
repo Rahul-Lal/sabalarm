@@ -40,9 +40,17 @@ verdunOption.style.display = "none";
 const primoVictoriaOption = document.getElementById("primoVictoriaOption");
 primoVictoriaOption.style.display = "none";
 
+// Element for "White Death"
+const whiteDeathOption = document.getElementById("whiteDeathOption");
+whiteDeathOption.style.display = "none";
+
 // Element for "To Hell and Back"
 const hellAndBackOption = document.getElementById("hellAndBackOption");
 hellAndBackOption.style.display = "none";
+
+// Element for "I, Emperor"
+const iEmperorOption = document.getElementById("iEmperorOption");
+iEmperorOption.style.display = "none";
 
 // Element for "I, Emperor"
 const iEmperorOption = document.getElementById("iEmperorOption");
@@ -124,6 +132,11 @@ const songs = {
     title:"I, Emperor",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/i-emperor",
     thumbnailID: "ZAaAT6UmJAU"
+  },
+  "Shadows":{
+    title:"Shadows",
+    soundcloudUrl: "https://soundcloud.com/sabatonofficial/shadows",
+    thumbnailID: "IxPn5FvOBtw"
   }
 };
 
@@ -138,7 +151,7 @@ specialDaysAppear(11, 25, xmasOption, "Christmas Truce");
 // 6 June - Primo Victoria (D-Day/Normandy Landings) - https://www.bbc.com/news/world-48513108
 specialDaysAppear(5, 6, primoVictoriaOption, "Primo Victoria");
 
-// 20 June - To Hell and Back (Audie Murphy's Birthday) - https://www.audiemurphy.com/
+// 20 June - To Hell and Back (Audie Murphy's Birthday) - https://www.audiemurphy.com/biography.htm
 specialDaysAppear(5, 20, hellAndBackOption, "To Hell and Back");
 
 // 17 December - White Death (Simo Häyhä's Birthday) - https://warfarehistorynetwork.com/article/finnish-sniper-simo-hayha/
@@ -146,6 +159,9 @@ specialDaysAppear(11, 17, whiteDeathOption, "White Death");
 
 // 15 August - I, Emperor (Napoleon Bonaparte's Birthday) - https://www.history.com/articles/napoleon
 specialDaysAppear(7, 15, iEmperorOption, "I, Emperor");
+
+// 3 January - Shadows (JJR Tolkien) - https://www.britannica.com/biography/J-R-R-Tolkien
+specialDaysAppear(0, 3, shadowOption, "Shadows");
 
 // Feb 21 to Dec 18 - Fields of Verdun (Battle of Verdun) - https://www.britannica.com/event/Battle-of-Verdun
 verdunAppears();
