@@ -188,7 +188,7 @@ function playSoundcloudAlarm() {
     meta = songs["Ghost Division"];
   }
 
-  const embedUrl = `https://w.soundcloud.com/player/?url=encodeURIComponent${meta.soundcloudUrl}&auto_play=true&loop=true&show_teaser=false`;
+  const embedUrl = `https://w.soundcloud.com/player/?url=encodeURIComponent${meta.soundcloudUrl}&auto_play=true&loop=true&show_teaser=false&color=%23ffd700`;
 
   // Make sure container is visible
   playerContainer.style.display = "block";
@@ -209,6 +209,17 @@ function playSoundcloudAlarm() {
     allow="autoplay"
     src="${embedUrl}">
   </iframe>`;
+
+
+  /*
+    <iframe
+      width="560"
+      height="315"
+      scrolling="no"
+      frameborder="no"
+      allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2064466140&color=%23ffd700&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/sabatonofficial" title="Sabaton" target="_blank" style="color: #cccccc; text-decoration: none;">Sabaton</a> · <a href="https://soundcloud.com/sabatonofficial/templars" title="Templars" target="_blank" style="color: #cccccc; text-decoration: none;">Templars</a></div>
+  */
 
   const iframe = playerContainer.querySelector("iframe");
   if (iframe) {
