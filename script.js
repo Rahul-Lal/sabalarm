@@ -188,7 +188,7 @@ function playSoundcloudAlarm() {
     meta = songs["Ghost Division"];
   }
 
-  const embedUrl = `https://w.soundcloud.com/player/?url=encodeURIComponent${meta.soundcloudUrl}&auto_play=true&loop=true&show_teaser=false&color=%23ffd700`;
+  const embedUrl = `https://w.soundcloud.com/player/?url=encodeURIComponent${meta.soundcloudUrl}&auto_play=true&loop=true&show_teaser=false&color=%23ffd700&show_comments=false&show_user=false&show_reposts=false&visual=true`;
 
   // Make sure container is visible
   playerContainer.style.display = "block";
