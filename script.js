@@ -1,3 +1,4 @@
+let scWidget = null;
 setInterval(livetime, 1000);
 
 let date = new Date().toLocaleString("en-NZ");
@@ -65,77 +66,77 @@ const songs = {
     thumbnailID: "yJDBmP9Mexk"
   },
   "Templars": {
-    title:"Templars",
+    title: "Templars",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/templars",
     thumbnailID: "YL_APKnLtJo"
   },
   "To Hell and Back": {
-    title:"To Hell and Back",
+    title: "To Hell and Back",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/to-hell-and-back",
     thumbnailID: "FBz7MX2bLcM"
   },
   "Metal Machine": {
-    title:"Metal Machine",
+    title: "Metal Machine",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/metal-machine",
     thumbnailID: "0l-cJ-206iQ"
   },
-  "White Death":{
-    title:"White Death",
+  "White Death": {
+    title: "White Death",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/white-death",
     thumbnailID: "JRIfWazqIQ8"
   },
   "The Royal Guard": {
-    title:"The Royal Guard",
+    title: "The Royal Guard",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/the-royal-guard",
     thumbnailID: "VXM3P8Rmy-U"
   },
-  "Dreadnought":{
-    title:"Dreadnought",
+  "Dreadnought": {
+    title: "Dreadnought",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/dreadnought",
     thumbnailID: "RJK0jhymE5A"
   },
-  "Bismarck":{
-    title:"Bismarck",
+  "Bismarck": {
+    title: "Bismarck",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/bismarck",
     thumbnailID: "EWKX3wass9s"
   },
-  "Soldiers of Heaven":{
-    title:"Soldiers of Heaven",
+  "Soldiers of Heaven": {
+    title: "Soldiers of Heaven",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/soldier-of-heaven",
     thumbnailID: "7c_JYtOVOpE"
   },
-  "Steel Commanders":{
-    title:"Steel Commanders",
+  "Steel Commanders": {
+    title: "Steel Commanders",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/steel-commanders",
     thumbnailID: "3QRkn_lxpec"
   },
-  "Christmas Truce":{
-    title:"Christmas Truce",
+  "Christmas Truce": {
+    title: "Christmas Truce",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/christmas-truce",
     thumbnailID: "goXDAFtkJLw"
   },
-  "The Attack of the Dead Men":{
-    title:"The Attack of the Dead Men",
+  "The Attack of the Dead Men": {
+    title: "The Attack of the Dead Men",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/the-attack-of-the-dead-men",
     thumbnailID: "-AFdwoyNT24"
   },
-  "Primo Victoria":{
-    title:"Primo Victoria",
+  "Primo Victoria": {
+    title: "Primo Victoria",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/primo-victoria",
     thumbnailID: "KVxTJ9Xb9Ec"
   },
-  "I, Emperor":{
-    title:"I, Emperor",
+  "I, Emperor": {
+    title: "I, Emperor",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/i-emperor",
     thumbnailID: "ZAaAT6UmJAU"
   },
-  "Shadows":{
-    title:"Shadows",
+  "Shadows": {
+    title: "Shadows",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/shadows",
     thumbnailID: "IxPn5FvOBtw"
   },
-  "The Duelist":{
-    title:"The Duelist",
+  "The Duelist": {
+    title: "The Duelist",
     soundcloudUrl: "https://soundcloud.com/sabatonofficial/the-duelist",
     thumbnailID: "6KUOX_VFVn0"
   }
@@ -187,8 +188,7 @@ function playSoundcloudAlarm() {
     meta = songs["Ghost Division"];
   }
 
-  const embedUrl =
-    `https://w.soundcloud.com/player/?url=${encodeURIComponent(meta.soundcloudUrl)}&auto_play=true&loop=true&show_teaser=false`;
+  const embedUrl = `https://w.soundcloud.com/player/?url=encodeURIComponent${meta.soundcloudUrl}&auto_play=true&loop=true&show_teaser=false`;
 
   // Make sure container is visible
   playerContainer.style.display = "block";
@@ -201,15 +201,31 @@ function playSoundcloudAlarm() {
 
   // Inject SoundCloud iframe
   playerContainer.innerHTML = `
-    <iframe
-      width="560"
-      height="315"
-      scrolling="no"
-      frameborder="no"
-      allow="autoplay"
-      autoplay="true"
-      src="${embedUrl}">
-    </iframe>`;
+  <iframe
+    width="560"
+    height="315"
+    scrolling="no"
+    frameborder="no"
+    allow="autoplay"
+    src="${embedUrl}">
+  </iframe>`;
+
+  const iframe = playerContainer.querySelector("iframe");
+  if (iframe) {
+    scWidget = SC.Widget(iframe);
+
+    scWidget.bind(SC.Widget.Events.READY, function () {
+      // start playing
+      scWidget.play();
+
+      // when track finishes, restart it
+      scWidget.bind(SC.Widget.Events.FINISH, function () {
+        scWidget.seekTo(0);   // go back to start
+        scWidget.play();
+      });
+    });
+  }
+
 
   // Your background / opacity changes can live here as before:
   if (phoneScreenSize.matches) {
@@ -233,22 +249,26 @@ function playSoundcloudAlarm() {
   Array.from(document.getElementsByTagName("h4")).forEach(h => h.style.opacity = "1");
 }
 
-
 function stopAlarm() {
   const playerContainer = document.getElementById("player");
 
-  // Remove the SoundCloud iframe
+  if (scWidget) {
+    scWidget.unbind(SC.Widget.Events.FINISH);
+    scWidget.pause();
+    scWidget = null;
+  }
+
+  // Remove iframe
   playerContainer.innerHTML = "";
   playerContainer.style.display = "none";
 
-  // Restore background and placeholder
+  // Restore background + placeholder
   body.style.backgroundImage = "url('./media/SabatonGrey.jpg')";
   body.style.transition = "background-image 0.75s ease-in-out";
 
   alarmPlaceholder.style.display = "block";
   alarmPlaceholder.style.opacity = "1";
 }
-
 
 function alarmset() {
   btnsetalarm.disabled = true;
