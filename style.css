@@ -154,5 +154,9 @@ footer a:visited {
         width: 66%;
         height: auto;
     }
+    #song-selection{
+        font-size: 20px;
+        margin-top: 10px;
+    }
 
 }

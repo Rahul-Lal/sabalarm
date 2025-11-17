@@ -200,15 +200,28 @@ function playSoundcloudAlarm() {
   alarmPlaceholder.style.display = "none";
 
   // Inject SoundCloud iframe
-  playerContainer.innerHTML = `
-  <iframe
-    width="560"
-    height="315"
-    scrolling="no"
-    frameborder="no"
-    allow="autoplay"
-    src="${embedUrl}">
-  </iframe>`;
+  if (phoneScreenSize.matches) {
+    playerContainer.innerHTML = `
+    <iframe
+      width="300"
+      height="300"
+      scrolling="no"
+      frameborder="no"
+      allow="autoplay"
+      src="${embedUrl}">
+    </iframe>`;
+  }
+  else {
+    playerContainer.innerHTML = `
+    <iframe
+      width="560"
+      height="315"
+      scrolling="no"
+      frameborder="no"
+      allow="autoplay"
+      src="${embedUrl}">
+    </iframe>`;
+  }
 
 
   /*
