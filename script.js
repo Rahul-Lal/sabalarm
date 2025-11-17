@@ -271,6 +271,7 @@ function playSoundcloudAlarm() {
 
   Array.from(document.getElementsByTagName("h3")).forEach(h => h.style.opacity = "1");
   Array.from(document.getElementsByTagName("h4")).forEach(h => h.style.opacity = "1");
+  Array.from(document.getElementsByTagName("label")).forEach(label => label.style.opacity = "1");
 }
 
 function stopAlarm() {
